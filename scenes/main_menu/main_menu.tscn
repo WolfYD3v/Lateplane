@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1exl1aqc3xre"]
 
 [ext_resource type="Script" uid="uid://buq7hplouostq" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://cy5b2atnquy84" path="res://assets/images/game_title_frames/game_title_frame_1.png" id="2_0ebjn"]
 
 [node name="MainMenu" type="Control" unique_id=481742960]
 layout_mode = 3
@@ -10,3 +11,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fsom3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1216860398]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=846638703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitleTextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1501843817]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_0ebjn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SeparationArea" type="ColorRect" parent="VBoxContainer" unique_id=1568391570]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1571512593]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonsContainer" unique_id=842573684]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Start Run"
+
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/Button" to="." method="_on_button_pressed"]

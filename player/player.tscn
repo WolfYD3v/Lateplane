@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxo8reycaf1e2"]
+
+[ext_resource type="Script" uid="uid://732end1b3hcw" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="SpriteFrames" uid="uid://dtctw0pspcait" path="res://assets/sprite_frames/player_sprite_frames.tres" id="2_rkbax"]
+
+[node name="Player" type="Node2D" unique_id=177106641]
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_oul6g")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=2033049156]
+zoom = Vector2(1.35, 1.35)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1753578843]
+sprite_frames = ExtResource("2_rkbax")
+animation = &"idle"

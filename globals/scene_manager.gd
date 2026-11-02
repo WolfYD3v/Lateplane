@@ -19,14 +19,11 @@ func _ready() -> void:
 
 
 
-func has_scene(scene_name: String) -> bool:
-	return _scenes.has(scene_name)
+func has_scene(scene_name: String) -> bool: return _scenes.has(scene_name)
 
-func add_scene(scene_name: String, scene_path: String) -> void :
-	_scenes.set(scene_name, scene_path)
+func add_scene(scene_name: String, scene_path: String) -> void : _scenes.set(scene_name, scene_path)
 
-func remove_scene(scene_name: String) -> void :
-	if _scenes.has(scene_name): _scenes.erase(scene_name)
+func remove_scene(scene_name: String) -> void : if _scenes.has(scene_name): _scenes.erase(scene_name)
 
 func replace_scene(scene_name: String) -> void :
 	if has_scene(scene_name):
@@ -44,12 +41,10 @@ func get_scene(scene_name: String) -> String:
 	if _scenes.has(scene_name): return _scenes.get(scene_name)
 	return ""
 
-func get_current_scene() -> String:
-	return _current_scene_name
+func get_current_scene() -> String: return _current_scene_name
 
 func get_scenes(with_values: bool = false) -> Variant:
 	if with_values: return _scenes
 	return _scenes.keys()
 
-func reload_current_scene() -> void:
-	replace_scene(_current_scene_name)
+func reload_current_scene() -> void: replace_scene(_current_scene_name)

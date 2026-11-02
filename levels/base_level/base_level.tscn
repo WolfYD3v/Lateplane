@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://qoim2xik8kgk"]
+
+[ext_resource type="Script" uid="uid://cu2v2py3efry2" path="res://levels/base_level/base_level.gd" id="1_wgie4"]
+[ext_resource type="PackedScene" uid="uid://bxo8reycaf1e2" path="res://player/player.tscn" id="2_6qevo"]
+
+[node name="BaseLevel" type="Node2D" unique_id=1651772781]
+script = ExtResource("1_wgie4")
+
+[node name="Player" parent="." unique_id=177106641 instance=ExtResource("2_6qevo")]
+
+[node name="MapContainer" type="Node2D" parent="." unique_id=1680991407]
+
+[node name="PointsContainer" type="Node2D" parent="." unique_id=523040712]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=23109835]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1166633532]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level(s) Remaining: x"

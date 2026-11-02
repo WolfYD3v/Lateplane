@@ -20,9 +20,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SaveManager="*uid://dcfaf2b2iggwh"
+SaveManager="uid://dcfaf2b2iggwh"
 SceneManager="*uid://cuhdcmnfn0y1b"
-SettingsManager="*uid://wcsvrt73ybo8"
+SettingsManager="uid://wcsvrt73ybo8"
+RunManager="*uid://dmgqomw8pev7j"
 
 [display]
 
