@@ -5,7 +5,10 @@ const LEVELS_DIRECTORY_PATH: String = "res://levels/collection/"
 var _current_level: String = ""
 var _all_levels: Array = []
 
+var money: float = 0.0
+
 func start_new_run() -> void:
+	money = 0.0
 	get_all_levels()
 	change_level()
 

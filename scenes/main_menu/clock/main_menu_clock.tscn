@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://vaymv3jcikht"]
+
+[ext_resource type="Script" uid="uid://1cr5gl1hwb5p" path="res://scenes/main_menu/clock/main_menu_clock.gd" id="1_n7r2e"]
+[ext_resource type="AudioStream" uid="uid://bpg2opqhb6s44" path="res://assets/sfxs/clock-tick-tock.mp3" id="2_6j5kt"]
+[ext_resource type="Texture2D" uid="uid://divw8jja4qq11" path="res://assets/materials/full_black_material.tres" id="2_ku0qj"]
+[ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_1ujw8"]
+[ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="4_pfq3y"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6j5kt"]
+radius = 104.0
+height = 204.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_112x8"]
+radius = 100.0
+height = 200.0
+
+[sub_resource type="Curve2D" id="Curve2D_6j5kt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, -92, 0, 0, 0, 0, 46, -76, 0, 0, 0, 0, 79, -40, 0, 0, 0, 0, 90, 0, 0, 0, 0, 0, 75, 42, 0, 0, 0, 0, 43, 75, 0, 0, 0, 0, 0, 90, 0, 0, 0, 0, -40, 70, 0, 0, 0, 0, -74, 34, 0, 0, 0, 0, -85, 1, 0, 0, 0, 0, -75, -43, 0, 0, 0, 0, -44, -73)
+}
+point_count = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_112x8"]
+size = Vector3(65, 7.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ebjn"]
+size = Vector3(90, 5.7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ob46e"]
+size = Vector3(95, 3, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ku0qj"]
+radius = 8.0
+height = 13.0
+
+[sub_resource type="TextMesh" id="TextMesh_112x8"]
+text = "nb"
+font_size = 15
+uppercase = true
+autowrap_mode = 3
+pixel_size = 1.2
+
+[node name="MainMenuClock" type="Node2D" unique_id=205605212]
+script = ExtResource("1_n7r2e")
+
+[node name="BackgroundCanvasGroup" type="CanvasGroup" parent="." unique_id=1926352104]
+
+[node name="Outline" type="MeshInstance2D" parent="BackgroundCanvasGroup" unique_id=521512695]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_6j5kt")
+texture = ExtResource("2_ku0qj")
+
+[node name="Body" type="MeshInstance2D" parent="BackgroundCanvasGroup" unique_id=1347986920]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_112x8")
+texture = ExtResource("3_1ujw8")
+
+[node name="NumbersCanvasGroup" type="CanvasGroup" parent="." unique_id=448854583]
+unique_name_in_owner = true
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1063100724]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_6j5kt")
+
+[node name="Arrows" type="Node2D" parent="." unique_id=1262301458]
+
+[node name="HoursArrow" type="Node2D" parent="Arrows" unique_id=1378055798]
+unique_name_in_owner = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Arrows/HoursArrow" unique_id=1196993685]
+position = Vector2(32.5, 0)
+mesh = SubResource("BoxMesh_112x8")
+texture = ExtResource("4_pfq3y")
+
+[node name="MinutesArrow" type="Node2D" parent="Arrows" unique_id=1886113408]
+unique_name_in_owner = true
+rotation = 1.5707964
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Arrows/MinutesArrow" unique_id=1310673112]
+position = Vector2(45, 0)
+mesh = SubResource("BoxMesh_0ebjn")
+texture = ExtResource("4_pfq3y")
+
+[node name="SecondsArrow" type="Node2D" parent="Arrows" unique_id=1119569442]
+unique_name_in_owner = true
+rotation = -3.1415925
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Arrows/SecondsArrow" unique_id=148570135]
+position = Vector2(47, 0)
+mesh = SubResource("BoxMesh_ob46e")
+texture = ExtResource("4_pfq3y")
+
+[node name="Outline2" type="MeshInstance2D" parent="." unique_id=289113692]
+mesh = SubResource("SphereMesh_ku0qj")
+texture = ExtResource("2_ku0qj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1506275272]
+unique_name_in_owner = true
+stream = ExtResource("2_6j5kt")
+max_polyphony = 5
+
+[node name="BaseTextMeshInstance" type="MeshInstance2D" parent="." unique_id=884768068]
+unique_name_in_owner = true
+visible = false
+rotation = -3.1415927
+mesh = SubResource("TextMesh_112x8")

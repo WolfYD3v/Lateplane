@@ -5,7 +5,7 @@ class_name BaseLevel
 @onready var points_container: Node2D = $PointsContainer
 
 func _ready() -> void:
-	$CanvasLayer/Label.text = "Level(s) Remaining: %s" % [RunManager.get_levels_count() + 1]
+	%Label.text = "Level(s) Remaining: %s" % [RunManager.get_levels_count() + 1]
 # TEMP
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

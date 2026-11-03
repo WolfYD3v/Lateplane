@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cu2v2py3efry2" path="res://levels/base_level/base_level.gd" id="1_wgie4"]
 [ext_resource type="PackedScene" uid="uid://bxo8reycaf1e2" path="res://player/player.tscn" id="2_6qevo"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_dg36u"]
+[ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
 script = ExtResource("1_wgie4")
@@ -14,7 +16,21 @@ script = ExtResource("1_wgie4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=23109835]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1166633532]
-offset_right = 40.0
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1485308135]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_dg36u")
+
+[node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1166633532]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 155.0
 offset_bottom = 23.0
 text = "Level(s) Remaining: x"
