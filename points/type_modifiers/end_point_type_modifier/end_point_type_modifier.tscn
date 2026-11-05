@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d248yrvv68a16"]
+
+[ext_resource type="Script" uid="uid://gkgvsyagtt3" path="res://points/type_modifiers/end_point_type_modifier/end_point_type_modifier.gd" id="1_x34ny"]
+
+[node name="EndPointTypeModifier" type="Node" unique_id=1490046106]
+script = ExtResource("1_x34ny")

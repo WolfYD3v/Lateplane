@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://bkgseta8rt50f"]
 
-[ext_resource type="Script" uid="uid://tyg37cdmguyk" path="res://points/empty_point/empty_point.gd" id="1_c6312"]
+[ext_resource type="PackedScene" uid="uid://c8gtuqruswj6u" path="res://points/base_point/base_point.tscn" id="1_c6312"]
+[ext_resource type="Script" uid="uid://tyg37cdmguyk" path="res://points/empty_point/empty_point.gd" id="2_ak1f1"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_c6312"]
-radius = 15.0
-height = 30.0
-
-[node name="EmptyPoint" type="Node2D" unique_id=166325081]
-script = ExtResource("1_c6312")
-
-[node name="MeshInstance" type="MeshInstance2D" parent="." unique_id=616150491]
-mesh = SubResource("SphereMesh_c6312")
+[node name="EmptyPoint" unique_id=1587538988 instance=ExtResource("1_c6312")]
+script = ExtResource("2_ak1f1")

@@ -1,11 +1,19 @@
 extends Node
 
+signal current_point_updated
+
 const LEVELS_DIRECTORY_PATH: String = "res://levels/collection/"
 
 var _current_level: String = ""
 var _all_levels: Array = []
 
+var current_point: BasePoint = null:
+	set(value):
+		current_point = value
+		current_point_updated.emit()
+
 var money: float = 0.0
+var days_count: int = 0
 
 func start_new_run() -> void:
 	money = 0.0

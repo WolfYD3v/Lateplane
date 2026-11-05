@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c8gtuqruswj6u"]
+
+[ext_resource type="Script" uid="uid://6wy6avmgqb33" path="res://points/base_point/base_point.gd" id="1_tjw0a"]
+[ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="2_d3yqc"]
+[ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_u5rcu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u5rcu"]
+radius = 23.625
+height = 42.525
+
+[sub_resource type="SphereMesh" id="SphereMesh_d3yqc"]
+radius = 21.6
+height = 47.25
+
+[sub_resource type="SphereMesh" id="SphereMesh_tjw0a"]
+radius = 15.0
+height = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_112x8"]
+radius = 15.0
+
+[node name="BasePoint" type="Node2D" unique_id=1587538988]
+script = ExtResource("1_tjw0a")
+
+[node name="ReadyForSelectionCanvasGroup" type="CanvasGroup" parent="." unique_id=327436523]
+unique_name_in_owner = true
+
+[node name="MeshInstance2" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=536676157]
+mesh = SubResource("SphereMesh_u5rcu")
+texture = ExtResource("2_d3yqc")
+
+[node name="MeshInstance3" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=19992325]
+mesh = SubResource("SphereMesh_d3yqc")
+texture = ExtResource("3_u5rcu")
+
+[node name="MeshInstance" type="MeshInstance2D" parent="." unique_id=1817514563]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_tjw0a")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=654367628]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="DetectionArea" unique_id=200324592]
+shape = SubResource("CircleShape2D_112x8")
+
+[connection signal="mouse_entered" from="DetectionArea" to="." method="_on_detection_area_mouse_entered"]
+[connection signal="mouse_exited" from="DetectionArea" to="." method="_on_detection_area_mouse_exited"]

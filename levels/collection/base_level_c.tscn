@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cwoa7x7n6844w"]
-
-[ext_resource type="PackedScene" uid="uid://qoim2xik8kgk" path="res://levels/base_level/base_level.tscn" id="1_180r4"]
-[ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="2_3rtx8"]
-
-[node name="BaseLevelC" unique_id=1651772781 instance=ExtResource("1_180r4")]
-
-[node name="EmptyPoint" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="0" unique_id=166325081 instance=ExtResource("2_3rtx8")]
-position = Vector2(-389, 160)

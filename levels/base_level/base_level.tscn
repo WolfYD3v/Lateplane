@@ -3,16 +3,51 @@
 [ext_resource type="Script" uid="uid://cu2v2py3efry2" path="res://levels/base_level/base_level.gd" id="1_wgie4"]
 [ext_resource type="PackedScene" uid="uid://bxo8reycaf1e2" path="res://player/player.tscn" id="2_6qevo"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_dg36u"]
+[ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_o8y72"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
+[ext_resource type="Texture2D" uid="uid://bmd1phor554l7" path="res://assets/images/game_logo.png" id="5_2ulk6"]
+[ext_resource type="PackedScene" uid="uid://bi8k31o82172v" path="res://assets/models/dice/dice.tscn" id="7_4dt4w"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_112x8"]
+viewport_path = NodePath("SubViewport")
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
 script = ExtResource("1_wgie4")
 
-[node name="Player" parent="." unique_id=177106641 instance=ExtResource("2_6qevo")]
-
 [node name="MapContainer" type="Node2D" parent="." unique_id=1680991407]
+unique_name_in_owner = true
 
 [node name="PointsContainer" type="Node2D" parent="." unique_id=523040712]
+unique_name_in_owner = true
+
+[node name="EmptyPoint1" parent="PointsContainer" unique_id=1587538988 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(123, 146)
+know_points = [NodePath("../EmptyPoint2"), NodePath("../EmptyPoint3")]
+
+[node name="EmptyPoint2" parent="PointsContainer" unique_id=219898193 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(36, 61)
+know_points = [NodePath("../EmptyPoint4"), NodePath("../EmptyPoint5")]
+
+[node name="EmptyPoint3" parent="PointsContainer" unique_id=626352786 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(240, 62)
+know_points = [NodePath("../EmptyPoint5"), NodePath("../EmptyPoint6")]
+
+[node name="EmptyPoint4" parent="PointsContainer" unique_id=1284768166 instance=ExtResource("3_o8y72")]
+position = Vector2(-45, -80)
+
+[node name="EmptyPoint5" parent="PointsContainer" unique_id=479303723 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(111, -78)
+know_points = [NodePath("../EmptyPoint7")]
+
+[node name="EmptyPoint6" parent="PointsContainer" unique_id=600015271 instance=ExtResource("3_o8y72")]
+position = Vector2(335, -77)
+
+[node name="EmptyPoint7" parent="PointsContainer" unique_id=1793071480 instance=ExtResource("3_o8y72")]
+position = Vector2(224, -152)
+end_point = true
+
+[node name="Player" parent="." unique_id=177106641 instance=ExtResource("2_6qevo")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=23109835]
 
@@ -23,14 +58,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_dg36u")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control" unique_id=1206310744]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Control" unique_id=496596151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Control" unique_id=954684679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1064296632]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_112x8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=532368417]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_2ulk6")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
 layout_mode = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1166633532]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 155.0
-offset_bottom = 23.0
-text = "Level(s) Remaining: x"
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1933407030]
+transparent_bg = true
+
+[node name="Dice" parent="SubViewport" unique_id=1389517773 instance=ExtResource("7_4dt4w")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1369704347]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 2, 1.5)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/Camera3D" unique_id=1481876011]
+light_energy = 5.0
+spot_range = 10.0
+spot_angle = 75.0
+spot_angle_attenuation = 3.5

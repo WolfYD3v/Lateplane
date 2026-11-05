@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://732end1b3hcw" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="SpriteFrames" uid="uid://dtctw0pspcait" path="res://assets/sprite_frames/player_sprite_frames.tres" id="2_rkbax"]
 
-[node name="Player" type="Node2D" unique_id=177106641]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_112x8"]
+size = Vector2(32, 32)
+
+[node name="Player" type="StaticBody2D" unique_id=1865772964]
 scale = Vector2(3.5, 3.5)
 script = ExtResource("1_oul6g")
 
@@ -13,3 +16,6 @@ zoom = Vector2(1.35, 1.35)
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1753578843]
 sprite_frames = ExtResource("2_rkbax")
 animation = &"idle"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=2043786081]
+shape = SubResource("RectangleShape2D_112x8")
