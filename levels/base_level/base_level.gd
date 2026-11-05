@@ -23,6 +23,9 @@ func _ready() -> void:
 		await get_tree().create_timer(3.5).timeout
 		first_point.try_toggle_next_point_selection()
 
+func _input(event: InputEvent) -> void:
+	$SubViewport.push_input(event)
+
 func get_all_points() -> Array[Node]: return points_container.get_children()
 
 func init_points() -> void:

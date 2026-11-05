@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_o8y72"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
 [ext_resource type="Texture2D" uid="uid://bmd1phor554l7" path="res://assets/images/game_logo.png" id="5_2ulk6"]
-[ext_resource type="PackedScene" uid="uid://bi8k31o82172v" path="res://assets/models/dice/dice.tscn" id="7_4dt4w"]
+[ext_resource type="PackedScene" uid="uid://te267ucufhas" path="res://scenes/dice_rolling/dice_rolling.tscn" id="7_4dt4w"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_112x8"]
 viewport_path = NodePath("SubViewport")
@@ -109,13 +109,4 @@ layout_mode = 1
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1933407030]
 transparent_bg = true
 
-[node name="Dice" parent="SubViewport" unique_id=1389517773 instance=ExtResource("7_4dt4w")]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1369704347]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 2, 1.5)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/Camera3D" unique_id=1481876011]
-light_energy = 5.0
-spot_range = 10.0
-spot_angle = 75.0
-spot_angle_attenuation = 3.5
+[node name="DiceRolling" parent="SubViewport" unique_id=1432776833 instance=ExtResource("7_4dt4w")]

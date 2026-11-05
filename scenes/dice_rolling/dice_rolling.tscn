@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://te267ucufhas"]
+
+[ext_resource type="PackedScene" uid="uid://bi8k31o82172v" path="res://assets/models/dice/dice.tscn" id="1_626gh"]
+[ext_resource type="Script" uid="uid://n5nqiurwfqgq" path="res://scenes/dice_rolling/dice_rolling.gd" id="1_oady1"]
+[ext_resource type="PackedScene" uid="uid://bqs1opw2g65rh" path="res://assets/models/dice_jar/dice_jar.tscn" id="3_34lna"]
+
+[node name="DiceRolling" type="Node3D" unique_id=1432776833]
+script = ExtResource("1_oady1")
+
+[node name="InitialDicePositionMaker" type="Marker3D" parent="." unique_id=745497700]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="Camera" type="Camera3D" parent="." unique_id=63657929]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 7)
+
+[node name="SpotLight" type="SpotLight3D" parent="Camera" unique_id=1390193691]
+light_energy = 5.0
+spot_range = 23.0
+spot_angle = 55.0
+spot_angle_attenuation = 3.5
+
+[node name="Dice" parent="." unique_id=1389517773 instance=ExtResource("1_626gh")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="DiceJar" parent="." unique_id=160290190 instance=ExtResource("3_34lna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)

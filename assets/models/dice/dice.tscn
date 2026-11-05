@@ -1,16 +1,9 @@
 [gd_scene format=4 uid="uid://bi8k31o82172v"]
 
-[ext_resource type="Texture2D" uid="uid://bohxwehst4jkr" path="res://assets/models/dice/Dice/Dice UV Maps/UV Maps Numbered/d20_Numbers.png" id="1_r053s"]
-[ext_resource type="Texture2D" uid="uid://d1kma50cr3fc0" path="res://assets/models/dice/Dice/Dice UV Maps/UV Maps Numbered/d20_Numbers_normal_map.png" id="2_l2ru2"]
+[ext_resource type="Script" uid="uid://6k58et6jpp00" path="res://assets/models/dice/dice.gd" id="1_ukbiv"]
+[ext_resource type="Material" uid="uid://x0m8ltvpdjtn" path="res://assets/materials/dice_material.tres" id="2_l2ru2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmyot"]
-albedo_texture = ExtResource("1_r053s")
-roughness_texture = ExtResource("2_l2ru2")
-normal_enabled = true
-normal_scale = 2.5
-normal_texture = ExtResource("2_l2ru2")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_83rfm"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_s1m2k"]
 _surfaces = [{
 "aabb": AABB(-0.8506508, -0.8506508, -0.8506508, 1.7013016, 1.7013016, 1.7013016),
 "format": 34896613377,
@@ -23,7 +16,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3636o"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_pxl42"]
 resource_name = "Solid.004"
 _surfaces = [{
 "aabb": AABB(-0.8506508, -0.8506508, -0.8506508, 1.7013016, 1.7013016, 1.7013016),
@@ -37,10 +30,17 @@ _surfaces = [{
 "vertex_data": PackedByteArray("////f+QwRNsaz////39E2/9/Gs8AAETb////f+QwmPj/f+QwAACY+BrPAAD/f5j4////fxrPB7X/fxrP//8HtRrP////fwe1////fxrPK7wazwAA/38rvP9/5DD//yu8AAD/f+QwmPj/fxrPAACY+OQw////f5j4AAD/f+QwRNvkMAAA/39E2/9/5DAAAETbAAD/fxrPK7zkMP///38rvP9/Gs///yu8AAD/fxrPB7X/f+Qw//8HteQwAAD/fwe1////f+QwmPj/fxrPAACY+P9/5DAAAJj4AAD/f+QwmPj/f+QwAACY+P9/Gs8AAJj4////fxrP86z/f+Qw///zrP9/Gs////OsAAD/fxrP86z/fxrP///zrP9/5DD///OsGs////9/Vs3///9/5DBWzf///38az1bNGs8AAP9/X97///9/Gs9f3v///3/kMF/e5DD///9/YN4AAP9/Gs9g3gAA/3/kMGDe5DAAAP9/Vs0AAP9/5DBWzQAA/38az1bN/38azwAAwtAaz////3/C0OQw////f8LQ/38az///B7XkMP///38HtRrP////fwe1/3/kMAAAwtDkMAAA/3/C0BrPAAD/f8LQ/3/kMP//B7UazwAA/38HteQwAAD/fwe1Ksw4WirMOFoqzDhaayW3x2slt8drJbfHErnEbBK5xGwSucRswnQpSMJ0KUjCdClIk9pHOJPaRziT2kc41DPGpdQzxqXUM8alPIvVtzyL1bc8i9W37EY6k+xGOpPsRjqTpsgNVqbIDVamyA1WWDfxqVg38alYN/Gpso/NZLKPzWSyj81kTHAxm0xwMZtMcDGb2LXsWti17FrYtexaxqBjUMagY1DGoGNQOF+brzhfm684X5uvJkoSpSZKEqUmShKlYeggWGHoIFhh6CBYPc2xlD3NsZQ9zbGUnRfep50X3qedF96nwTJNa8EyTWvBMk1r")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_83rfm")
+shadow_mesh = SubResource("ArrayMesh_s1m2k")
 
-[node name="Dice" type="Node3D" unique_id=1389517773]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1ihv"]
+points = PackedVector3Array(-0.051727485, -0.4932002, -0.8308926, 0.025871199, 0.5193771, 0.83113354, 0.02580201, 0.54395247, 0.80294657, 0.83133006, -0.025714597, -0.51933724, 0.02580201, -0.54395247, 0.80294657, -0.543894, 0.80309975, -0.025806963, -0.83083194, -0.05188634, 0.4931642, 0.02580201, 0.54395247, -0.80294657, 0.54389393, 0.8030999, 0.025806967, 0.83133006, -0.025714597, 0.51933724, 0.51937705, -0.8311336, -0.02587123, -0.543894, -0.80309975, -0.025806963, -0.83113354, 0.02587123, -0.5193771, -0.83113354, 0.02587123, 0.5193771, 0.025871199, -0.5193771, -0.83113354, -0.5193771, 0.83113354, 0.025871228, -0.025871255, -0.5193771, 0.83113354, -0.5193771, -0.83113354, 0.025871228, -0.025871255, 0.5193771, -0.83113354, 0.51937705, 0.8311336, -0.02587123, -0.051727485, 0.4932002, 0.8308926, 0.8308927, 0.051727463, -0.49320024, 0.49316412, -0.83083194, 0.051886335, 0.8308927, 0.051727463, 0.49320024, -0.83083194, -0.05188634, -0.4931642, 0.051886305, 0.4931642, -0.830832, -0.49320015, -0.8308927, -0.05172746, 0.051886305, -0.4931642, 0.830832, -0.49320015, 0.8308927, -0.05172746, 0.49316412, 0.83083194, 0.051886335)
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=539263517]
-material_override = SubResource("StandardMaterial3D_wmyot")
-mesh = SubResource("ArrayMesh_3636o")
+[node name="Dice" type="RigidBody3D" unique_id=990719062]
+script = ExtResource("1_ukbiv")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1676295440]
+material_override = ExtResource("2_l2ru2")
+mesh = SubResource("ArrayMesh_pxl42")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=94705012]
+shape = SubResource("ConvexPolygonShape3D_h1ihv")

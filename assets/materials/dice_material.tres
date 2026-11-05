@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://x0m8ltvpdjtn"]
+
+[ext_resource type="Texture2D" uid="uid://bohxwehst4jkr" path="res://assets/models/dice/Dice/Dice UV Maps/UV Maps Numbered/d20_Numbers.png" id="1_kdbic"]
+[ext_resource type="Texture2D" uid="uid://d1kma50cr3fc0" path="res://assets/models/dice/Dice/Dice UV Maps/UV Maps Numbered/d20_Numbers_normal_map.png" id="2_ew6r8"]
+
+[resource]
+albedo_texture = ExtResource("1_kdbic")
+roughness = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_ew6r8")
