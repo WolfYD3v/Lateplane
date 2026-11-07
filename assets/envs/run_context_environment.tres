@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://xbsxv8chp3i2"]
+
+[ext_resource type="Texture2D" uid="uid://dxb41cwl7cotc" path="res://icon.svg" id="1_5xdgm"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dofqh"]
+panorama = ExtResource("1_5xdgm")
+
+[sub_resource type="Sky" id="Sky_c11rx"]
+sky_material = SubResource("PanoramaSkyMaterial_dofqh")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_c11rx")
+sky_rotation = Vector3(0, -3.1415927, 0)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)

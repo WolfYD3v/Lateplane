@@ -4,26 +4,40 @@
 [ext_resource type="Script" uid="uid://n5nqiurwfqgq" path="res://scenes/dice_rolling/dice_rolling.gd" id="1_oady1"]
 [ext_resource type="PackedScene" uid="uid://bqs1opw2g65rh" path="res://assets/models/dice_jar/dice_jar.tscn" id="3_34lna"]
 
-[node name="DiceRolling" type="Node3D" unique_id=1432776833]
+[sub_resource type="ViewportTexture" id="ViewportTexture_34lna"]
+viewport_path = NodePath("SubViewport")
+
+[node name="DiceRolling" type="TextureRect" unique_id=2100200545]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_34lna")
 script = ExtResource("1_oady1")
 
-[node name="InitialDicePositionMaker" type="Marker3D" parent="." unique_id=745497700]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=59815420]
+unique_name_in_owner = true
+size = Vector2i(1152, 648)
+
+[node name="InitialDicePositionMaker" type="Marker3D" parent="SubViewport" unique_id=745497700]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 
-[node name="Camera" type="Camera3D" parent="." unique_id=63657929]
+[node name="Camera" type="Camera3D" parent="SubViewport" unique_id=63657929]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 7)
+current = true
 
-[node name="SpotLight" type="SpotLight3D" parent="Camera" unique_id=1390193691]
+[node name="SpotLight" type="SpotLight3D" parent="SubViewport/Camera" unique_id=1390193691]
 light_energy = 5.0
 spot_range = 23.0
 spot_angle = 55.0
 spot_angle_attenuation = 3.5
 
-[node name="Dice" parent="." unique_id=1389517773 instance=ExtResource("1_626gh")]
+[node name="Dice" parent="SubViewport" unique_id=1389517773 instance=ExtResource("1_626gh")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 
-[node name="DiceJar" parent="." unique_id=160290190 instance=ExtResource("3_34lna")]
+[node name="DiceJar" parent="SubViewport" unique_id=160290190 instance=ExtResource("3_34lna")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)

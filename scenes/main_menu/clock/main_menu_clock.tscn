@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://vaymv3jcikht"]
 
 [ext_resource type="Script" uid="uid://1cr5gl1hwb5p" path="res://scenes/main_menu/clock/main_menu_clock.gd" id="1_n7r2e"]
-[ext_resource type="AudioStream" uid="uid://bpg2opqhb6s44" path="res://assets/sfxs/clock-tick-tock.mp3" id="2_6j5kt"]
 [ext_resource type="Texture2D" uid="uid://divw8jja4qq11" path="res://assets/materials/full_black_material.tres" id="2_ku0qj"]
 [ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_1ujw8"]
 [ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="4_pfq3y"]
+[ext_resource type="AudioStream" uid="uid://bxr82vo5cqsxw" path="res://assets/sfxs/clock-tick-real.mp3" id="5_pfq3y"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_6j5kt"]
 radius = 104.0
@@ -96,7 +96,7 @@ texture = ExtResource("2_ku0qj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1506275272]
 unique_name_in_owner = true
-stream = ExtResource("2_6j5kt")
+stream = ExtResource("5_pfq3y")
 max_polyphony = 5
 
 [node name="BaseTextMeshInstance" type="MeshInstance2D" parent="." unique_id=884768068]

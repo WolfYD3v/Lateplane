@@ -1,9 +1,10 @@
-extends Node3D
+extends TextureRect
 class_name DiceRolling
 
 @onready var dice: Dice = %Dice
 @onready var camera: Camera3D = %Camera
 @onready var initial_dice_position_maker: Marker3D = %InitialDicePositionMaker
+@onready var sub_viewport: SubViewport = %SubViewport
 
 var random_number: int = 0
 var rolling_dice: bool = false

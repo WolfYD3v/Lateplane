@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmd1phor554l7" path="res://assets/images/game_logo.png" id="5_2ulk6"]
 [ext_resource type="PackedScene" uid="uid://te267ucufhas" path="res://scenes/dice_rolling/dice_rolling.tscn" id="7_4dt4w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_112x8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4dt4w"]
 viewport_path = NodePath("SubViewport")
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
@@ -68,6 +68,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -350.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
@@ -89,13 +90,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1064296632]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("ViewportTexture_112x8")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=532368417]
 layout_mode = 2
 size_flags_vertical = 3
@@ -103,10 +97,9 @@ texture = ExtResource("5_2ulk6")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="DiceRolling" parent="CanvasLayer/Control" unique_id=1432776833 instance=ExtResource("7_4dt4w")]
+layout_mode = 1
+texture = SubResource("ViewportTexture_4dt4w")
+
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
 layout_mode = 1
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1933407030]
-transparent_bg = true
-
-[node name="DiceRolling" parent="SubViewport" unique_id=1432776833 instance=ExtResource("7_4dt4w")]

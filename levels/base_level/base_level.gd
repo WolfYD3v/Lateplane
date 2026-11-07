@@ -11,6 +11,12 @@ class_name BaseLevel
 var has_end_point: BasePoint = null
 
 func _ready() -> void:
+	$CanvasLayer/Control/DiceRolling.hide()
+	$CanvasLayer/Control/DiceRolling.process_mode = Node.PROCESS_MODE_DISABLED
+	#await get_tree().create_timer(1.5).timeout
+	#$CanvasLayer/Control/DiceRolling.show()
+	#$CanvasLayer/Control/DiceRolling.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	RunManager.current_point_updated.connect(
 		func(): player.position = RunManager.current_point.global_position
 	)
@@ -22,9 +28,6 @@ func _ready() -> void:
 		first_point.update_current_point()
 		await get_tree().create_timer(3.5).timeout
 		first_point.try_toggle_next_point_selection()
-
-func _input(event: InputEvent) -> void:
-	$SubViewport.push_input(event)
 
 func get_all_points() -> Array[Node]: return points_container.get_children()
 

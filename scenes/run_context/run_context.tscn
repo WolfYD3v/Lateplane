@@ -1,0 +1,331 @@
+[gd_scene format=3 uid="uid://kl3nh7sx32uc"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_immmn"]
+[ext_resource type="Script" uid="uid://bndwbuvqj0x1b" path="res://scenes/run_context/run_context.gd" id="1_x6r2v"]
+[ext_resource type="Script" uid="uid://divyflfftso2c" path="res://resources/run_context_sequence/run_context_sequence.gd" id="2_482ak"]
+[ext_resource type="Texture2D" uid="uid://b58oikwdr0p34" path="res://assets/images/run_context_sequences_images/sequence_1_image.png" id="3_t5l8b"]
+[ext_resource type="AudioStream" uid="uid://bj7e4wjfjrrct" path="res://assets/voice_lines/run_context_sequences/sequence_1.mp3" id="4_hroms"]
+[ext_resource type="Texture2D" uid="uid://bdh02rksrgf8p" path="res://assets/images/run_context_sequences_images/sequence_2_image.png" id="5_tv6xf"]
+[ext_resource type="Texture2D" uid="uid://cices844gukuu" path="res://assets/images/run_context_sequences_images/sequence_7_image.png" id="6_0t7kd"]
+[ext_resource type="Texture2D" uid="uid://cdmdb0h0lkx5o" path="res://assets/images/run_context_sequences_images/sequence_3_image.png" id="6_dofqh"]
+[ext_resource type="AudioStream" uid="uid://jvod462svccr" path="res://assets/voice_lines/run_context_sequences/sequence_2.mp3" id="6_qo774"]
+[ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="7_r48yk"]
+[ext_resource type="AudioStream" uid="uid://ddpsfro30wfww" path="res://assets/voice_lines/run_context_sequences/sequence_3.mp3" id="8_hroms"]
+[ext_resource type="Environment" uid="uid://xbsxv8chp3i2" path="res://assets/envs/run_context_environment.tres" id="8_jtux8"]
+[ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="9_8t7bd"]
+[ext_resource type="AudioStream" uid="uid://cfr07ehrb5ekw" path="res://assets/voice_lines/run_context_sequences/sequence_4.mp3" id="9_tv6xf"]
+[ext_resource type="Texture2D" uid="uid://l4a6lb0jm15p" path="res://assets/images/man-sitting-on-couch-watching-tv.png" id="10_c11rx"]
+[ext_resource type="Texture2D" uid="uid://bhcshe0ow4rpr" path="res://assets/images/run_context_sequences_images/sequence_5_image.png" id="10_qo774"]
+[ext_resource type="AudioStream" uid="uid://c3nmisy4uqw5t" path="res://assets/voice_lines/run_context_sequences/sequence_5.mp3" id="11_utttb"]
+[ext_resource type="Texture2D" uid="uid://c22m8six4ujrn" path="res://assets/images/run_context_sequences_images/sequence_6_image.png" id="12_yntpy"]
+[ext_resource type="AudioStream" uid="uid://vclawfvb7to0" path="res://assets/voice_lines/run_context_sequences/sequence_6.mp3" id="13_xtxgt"]
+[ext_resource type="AudioStream" uid="uid://bs8afgfcc5o7i" path="res://assets/voice_lines/run_context_sequences/sequence_7.mp3" id="15_xtxgt"]
+[ext_resource type="Texture2D" uid="uid://djampwi4extx" path="res://assets/images/run_context_sequences_images/sequence_8_image.png" id="16_5c560"]
+[ext_resource type="AudioStream" uid="uid://dswjmdjrtjnap" path="res://assets/voice_lines/run_context_sequences/sequence_8.mp3" id="17_d576l"]
+[ext_resource type="Texture2D" uid="uid://xq3htu06gny8" path="res://export/web/game/Lateplane.icon.png" id="18_rub33"]
+[ext_resource type="AudioStream" uid="uid://bxqtjucgn6uh" path="res://assets/sfxs/winchester-rifle-loading.mp3" id="19_2467k"]
+[ext_resource type="Texture2D" uid="uid://dv3dq36wcqde6" path="res://assets/images/run_context_sequences_images/sequence_10_image.png" id="20_3nv5o"]
+[ext_resource type="AudioStream" uid="uid://b8kp2luj35m0h" path="res://assets/voice_lines/run_context_sequences/sequence_10.mp3" id="21_tvujv"]
+[ext_resource type="AudioStream" uid="uid://ceo7t1pefc8x" path="res://assets/sfxs/teleport.mp3" id="26_rub33"]
+
+[sub_resource type="Resource" id="Resource_40iel"]
+script = ExtResource("2_482ak")
+image = ExtResource("3_t5l8b")
+voice_line = ExtResource("4_hroms")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_oxuw2"]
+script = ExtResource("2_482ak")
+image = ExtResource("5_tv6xf")
+voice_line = ExtResource("6_qo774")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_tv6xf"]
+script = ExtResource("2_482ak")
+image = ExtResource("6_dofqh")
+voice_line = ExtResource("8_hroms")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_qo774"]
+script = ExtResource("2_482ak")
+image = ExtResource("6_dofqh")
+voice_line = ExtResource("9_tv6xf")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_0dvwh"]
+script = ExtResource("2_482ak")
+image = ExtResource("10_qo774")
+voice_line = ExtResource("11_utttb")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_lpcle"]
+script = ExtResource("2_482ak")
+image = ExtResource("12_yntpy")
+voice_line = ExtResource("13_xtxgt")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_olwql"]
+script = ExtResource("2_482ak")
+image = ExtResource("6_0t7kd")
+voice_line = ExtResource("15_xtxgt")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_kjgoo"]
+script = ExtResource("2_482ak")
+image = ExtResource("16_5c560")
+voice_line = ExtResource("17_d576l")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_w21vt"]
+script = ExtResource("2_482ak")
+image = ExtResource("18_rub33")
+voice_line = ExtResource("19_2467k")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="Resource" id="Resource_rub33"]
+script = ExtResource("2_482ak")
+image = ExtResource("20_3nv5o")
+voice_line = ExtResource("21_tvujv")
+metadata/_custom_type_script = "uid://divyflfftso2c"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlp30"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_112x8"]
+material = SubResource("StandardMaterial3D_jlp30")
+text = "C'était cool comme mise en context n'est-ce pas ?
+Juste cette physique 3D c'est le top putain"
+font_size = 25
+autowrap_mode = 3
+pixel_size = 0.05
+width = 650.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_112x8"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_112x8"]
+size = Vector2(8.25, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c11rx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_112x8"]
+size = Vector3(15, 0.5, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_112x8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyu1l"]
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c11rx"]
+bg_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t7kd"]
+bg_color = Color(0.427493, 0.42749307, 0.42749295, 1)
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t7bd"]
+bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+anti_aliasing = false
+
+[node name="RunContext" type="Node3D" unique_id=475722064]
+script = ExtResource("1_x6r2v")
+sequences = Array[ExtResource("2_482ak")]([SubResource("Resource_40iel"), SubResource("Resource_oxuw2"), SubResource("Resource_tv6xf"), SubResource("Resource_qo774"), SubResource("Resource_0dvwh"), SubResource("Resource_lpcle"), SubResource("Resource_olwql"), SubResource("Resource_kjgoo"), SubResource("Resource_w21vt"), SubResource("Resource_rub33")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=56943061]
+environment = ExtResource("8_jtux8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=474243667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+mesh = SubResource("TextMesh_112x8")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1700259565]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1058025240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.95)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1433289518]
+size = Vector3(50, 50, 3.5)
+material = SubResource("StandardMaterial3D_112x8")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=880792618]
+operation = 2
+size = Vector3(8.255, 4.55, 3.5)
+material = SubResource("StandardMaterial3D_112x8")
+
+[node name="3DViewRigidBody" type="RigidBody3D" parent="." unique_id=1598122216]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.95)
+mass = 0.5
+gravity_scale = 0.35
+freeze = true
+
+[node name="MeshInstance" type="MeshInstance3D" parent="3DViewRigidBody" unique_id=403913177]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_112x8")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="3DViewRigidBody" unique_id=542051180]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_c11rx")
+
+[node name="StaticBody" type="StaticBody3D" parent="." unique_id=503070576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody" unique_id=1016025261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_112x8")
+
+[node name="Area" type="Area3D" parent="." unique_id=1857390206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, -3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" unique_id=181447591]
+shape = SubResource("WorldBoundaryShape3D_112x8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1887442889]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=300835666]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_immmn")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=457135038]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ImageTextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=120461628]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0t7kd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=97201894]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control/Menu" unique_id=783300980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Menu" unique_id=1217883358]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Contextes don't
+wear you
+
+- Planelate -"
+horizontal_alignment = 1
+
+[node name="Buttons" type="Control" parent="CanvasLayer/Control/Menu" unique_id=380320724]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GetContextButton" type="Button" parent="CanvasLayer/Control/Menu/Buttons" unique_id=371277736]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 69.0
+offset_right = 793.0
+offset_bottom = 285.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyu1l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c11rx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0t7kd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8t7bd")
+text = "Get Context"
+icon = ExtResource("9_8t7bd")
+alignment = 0
+autowrap_mode = 3
+expand_icon = true
+
+[node name="SkipButton" type="Button" parent="CanvasLayer/Control/Menu/Buttons" unique_id=609223115]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 342.0
+offset_right = 930.0
+offset_bottom = 558.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dyu1l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c11rx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0t7kd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8t7bd")
+text = "Skip"
+icon = ExtResource("10_c11rx")
+alignment = 0
+autowrap_mode = 3
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control/Menu" unique_id=179177956]
+stream = ExtResource("26_rub33")
+volume_db = -15.0
+pitch_scale = 4.0
+autoplay = true
+parameters/looping = true
+
+[node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("7_r48yk")]
+layout_mode = 1
+offset_left = 238.0
+offset_top = 257.0
+offset_right = 238.0
+offset_bottom = 257.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=453253156]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Control/Menu/Buttons/GetContextButton" to="." method="_on_get_context_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Menu/Buttons/SkipButton" to="." method="_on_skip_button_pressed"]

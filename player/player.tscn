@@ -4,7 +4,164 @@
 [ext_resource type="SpriteFrames" uid="uid://dtctw0pspcait" path="res://assets/sprite_frames/player_sprite_frames.tres" id="2_rkbax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_112x8"]
-size = Vector2(32, 32)
+size = Vector2(22.285715, 44.000008)
+
+[sub_resource type="Animation" id="Animation_g1dw6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadAnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LeftArmAnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/LeftArmAnimatedSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/RightAnimatedSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/RightAnimatedSprite:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rkbax"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadAnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.6399, 2.0574214, 2.75, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.792), Vector2(0, 2.35), Vector2(0, 2.35), Vector2(0, 2.074), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.85, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.1), Vector2(0, -0.2), Vector2(0, -0.2), Vector2(0, -0.035), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LeftArmAnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6, 2.7, 4.3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.145, 1.355), Vector2(-0.90394735, 1.0697368), Vector2(-0.90394735, 1.0697368), Vector2(-0.75, 0.126), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/LeftArmAnimatedSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6, 2.7, 4.3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.06981317007977318, 0.055115663, 0.03490658503988659, 0.005235987755983187, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/RightAnimatedSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.7666667, 2.6, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.04, 1.29), Vector2(0.04, 1.29), Vector2(0.01, 0.237), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/RightAnimatedSprite:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.75, 2.6, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.19198621771937624, -0.16580627893946132, -0.017453292519943295, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1dw6"]
+_data = {
+&"RESET": SubResource("Animation_g1dw6"),
+&"idle": SubResource("Animation_rkbax")
+}
 
 [node name="Player" type="StaticBody2D" unique_id=1865772964]
 scale = Vector2(3.5, 3.5)
@@ -13,9 +170,40 @@ script = ExtResource("1_oul6g")
 [node name="Camera" type="Camera2D" parent="." unique_id=2033049156]
 zoom = Vector2(1.35, 1.35)
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1753578843]
+[node name="Body" type="Node2D" parent="." unique_id=1553571679]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="BodyAnimatedSprite" type="AnimatedSprite2D" parent="Body" unique_id=1360363500]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("2_rkbax")
-animation = &"idle"
+animation = &"body"
+
+[node name="LeftArmAnimatedSprite" type="AnimatedSprite2D" parent="Body" unique_id=307498116]
+unique_name_in_owner = true
+scale = Vector2(0.099999994, 0.099999994)
+sprite_frames = ExtResource("2_rkbax")
+animation = &"left_arm"
+
+[node name="RightAnimatedSprite" type="AnimatedSprite2D" parent="Body" unique_id=1844874293]
+unique_name_in_owner = true
+scale = Vector2(0.099999994, 0.099999994)
+sprite_frames = ExtResource("2_rkbax")
+animation = &"right_arm"
+
+[node name="HeadAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1753578843]
+unique_name_in_owner = true
+scale = Vector2(0.099999994, 0.099999994)
+sprite_frames = ExtResource("2_rkbax")
+animation = &"head"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=2043786081]
+visible = false
+position = Vector2(0.85714364, 2.7247833e-07)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_112x8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=925850359]
+libraries/ = SubResource("AnimationLibrary_g1dw6")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

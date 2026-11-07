@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RunContextSequence" format=3 uid="uid://bmhvo83subw1r"]
+
+[ext_resource type="Script" uid="uid://divyflfftso2c" path="res://resources/run_context_sequence/run_context_sequence.gd" id="1_lgsae"]
+
+[resource]
+script = ExtResource("1_lgsae")

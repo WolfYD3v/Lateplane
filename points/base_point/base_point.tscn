@@ -5,16 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_u5rcu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_u5rcu"]
-radius = 23.625
-height = 42.525
+radius = 35.438
+height = 71.235
 
 [sub_resource type="SphereMesh" id="SphereMesh_d3yqc"]
-radius = 21.6
-height = 47.25
+radius = 43.2
+height = 64.271
 
 [sub_resource type="SphereMesh" id="SphereMesh_tjw0a"]
-radius = 15.0
-height = 30.0
+radius = 30.0
+height = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_112x8"]
 radius = 15.0
@@ -26,10 +26,12 @@ script = ExtResource("1_tjw0a")
 unique_name_in_owner = true
 
 [node name="MeshInstance2" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=536676157]
+position = Vector2(0, 0.5000113)
 mesh = SubResource("SphereMesh_u5rcu")
 texture = ExtResource("2_d3yqc")
 
 [node name="MeshInstance3" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=19992325]
+position = Vector2(0, 0.5000076)
 mesh = SubResource("SphereMesh_d3yqc")
 texture = ExtResource("3_u5rcu")
 
