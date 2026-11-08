@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://b27b4jq6ajnir"]
+
+[ext_resource type="Script" uid="uid://vn5yg38n4vds" path="res://resources/random_event_action/random_event_action.gd" id="1_nb6m4"]
+
+[resource]
+script = ExtResource("1_nb6m4")
+chance_value = 2

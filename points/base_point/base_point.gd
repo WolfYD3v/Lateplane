@@ -1,7 +1,9 @@
 extends Node2D
 class_name BasePoint
 
-@onready var texture: MeshInstance2D = %MeshInstance
+signal done
+
+@onready var sprite: Sprite2D = %Sprite
 @onready var ready_for_selection_canvas_group: CanvasGroup = %ReadyForSelectionCanvasGroup
 @onready var detection_area: Area2D = %DetectionArea
 
@@ -29,8 +31,7 @@ func _input(event: InputEvent) -> void:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _mouse_in and _ready_for_selection:
 			try_toggle_next_point_selection(false)
 			update_current_point()
-			await get_tree().create_timer(0.5).timeout
-			try_toggle_next_point_selection()
+			done.emit()
 
 func update_current_point() -> void:
 	print("Know Points on Point '%s': " % name, know_points)
@@ -45,6 +46,12 @@ func try_toggle_next_point_selection(enabled: bool = true) -> void:
 		if RunManager.current_point != self or enabled: RunManager.current_point.selected = false
 	
 	for _point: BasePoint in know_points: _point._ready_for_selection = enabled
+
+func get_player_position_on_point() -> Vector2:
+	return Vector2(
+		global_position.x,
+		global_position.y - 75.0
+	)
 
 func _process(delta: float) -> void:
 	ready_for_selection_canvas_group.get_child(0).rotate(deg_to_rad(55.0 * delta))

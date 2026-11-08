@@ -17,7 +17,9 @@ var backgrounds: Array[String] = []
 func _ready() -> void:
 	black_fading.hide()
 	get_game_title_frames()
+	update_game_title()
 	get_backgrounds()
+	update_background()
 	main_menu_clock.seconds_updated.connect(update_game_title)
 	main_menu_clock.minutes_updated.connect(update_background)
 

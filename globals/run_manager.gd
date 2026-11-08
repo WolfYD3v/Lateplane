@@ -4,13 +4,14 @@ signal current_point_updated
 
 const LEVELS_DIRECTORY_PATH: String = "res://levels/collection/"
 
-var _current_level: String = ""
+var _current_level_file_name: String = ""
 var _all_levels: Array = []
 
 var current_point: BasePoint = null:
 	set(value):
 		current_point = value
 		current_point_updated.emit()
+var current_level: BaseLevel = null
 
 var money: float = 0.0
 var days_count: int = 0
@@ -25,7 +26,7 @@ func change_level() -> void:
 	else:
 		set_random_current_level()
 		if SceneManager.has_scene("Map"): SceneManager.remove_scene("Map")
-		SceneManager.add_scene("Map", LEVELS_DIRECTORY_PATH + _current_level)
+		SceneManager.add_scene("Map", LEVELS_DIRECTORY_PATH + _current_level_file_name)
 		SceneManager.replace_scene("Map")
 
 func get_levels_count() -> int: return _all_levels.size()
@@ -36,8 +37,8 @@ func get_all_levels() -> void:
 
 func set_random_current_level() -> void:
 	var random_idx: int = randi_range(0, get_levels_count() - 1)
-	_current_level = _all_levels.pop_at(random_idx)
-	print("Level Selected: ", _current_level)
+	_current_level_file_name = _all_levels.pop_at(random_idx)
+	print("Level Selected: ", _current_level_file_name)
 	print("Levels Remaining: ", _all_levels)
 
 func run_finished() -> void:

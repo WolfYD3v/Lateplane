@@ -11,6 +11,8 @@ var _type_modifiers: Array[String] = []
 func _ready() -> void:
 	super()
 	get_all_type_modifiers()
+	
+	try_asign_type()
 
 func get_all_type_modifiers() -> void:
 	for file: String in DirAccess.get_files_at(TYPE_MODIFIERS_DIRECTORY):
@@ -20,7 +22,7 @@ func try_asign_type() -> void:
 	var type_modifier_path: String = ""
 	
 	if end_point: type_modifier_path = END_POINT_TYPE_MODIFIER_PATH
-	elif randf_range(0.0, 1.0) > 0.15:
+	elif randf_range(0.0, 1.0) > 0.15 or true:
 		type_modifier_path = "%s%s" % [
 			TYPE_MODIFIERS_DIRECTORY, _type_modifiers.pick_random()
 		]

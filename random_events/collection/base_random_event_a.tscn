@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://3ky46br2vmy6"]
+
+[ext_resource type="PackedScene" uid="uid://ptkf6bsup02d" path="res://random_events/base_random_event/base_random_event.tscn" id="1_juuma"]
+
+[node name="BaseRandomEvent" unique_id=1013607034 instance=ExtResource("1_juuma")]

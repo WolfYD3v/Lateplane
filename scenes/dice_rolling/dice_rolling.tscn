@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://te267ucufhas"]
 
 [ext_resource type="PackedScene" uid="uid://bi8k31o82172v" path="res://assets/models/dice/dice.tscn" id="1_626gh"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_cjcso"]
 [ext_resource type="Script" uid="uid://n5nqiurwfqgq" path="res://scenes/dice_rolling/dice_rolling.gd" id="1_oady1"]
 [ext_resource type="PackedScene" uid="uid://bqs1opw2g65rh" path="res://assets/models/dice_jar/dice_jar.tscn" id="3_34lna"]
+[ext_resource type="FontFile" uid="uid://egf1sa4vsra8" path="res://assets/fonts/Redaction_50/Redaction50-Bold.ttf" id="5_bpvdg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_34lna"]
 viewport_path = NodePath("SubViewport")
@@ -13,11 +15,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cjcso")
 texture = SubResource("ViewportTexture_34lna")
 script = ExtResource("1_oady1")
 
+[node name="ClickInstruction" type="Control" parent="." unique_id=53616614]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="ClickInstruction" unique_id=494160841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="ClickLabel" type="Label" parent="ClickInstruction" unique_id=1960526849]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_bpvdg")
+theme_override_font_sizes/font_size = 75
+text = "Click to roll
+the dice  !!!§!!§!§§!!§!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="SubViewport" type="SubViewport" parent="." unique_id=59815420]
 unique_name_in_owner = true
+transparent_bg = true
 size = Vector2i(1152, 648)
 
 [node name="InitialDicePositionMaker" type="Marker3D" parent="SubViewport" unique_id=745497700]
@@ -26,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
 
 [node name="Camera" type="Camera3D" parent="SubViewport" unique_id=63657929]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 7)
 current = true
 
 [node name="SpotLight" type="SpotLight3D" parent="SubViewport/Camera" unique_id=1390193691]
@@ -38,6 +78,14 @@ spot_angle_attenuation = 3.5
 [node name="Dice" parent="SubViewport" unique_id=1389517773 instance=ExtResource("1_626gh")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+roll_strength = 15.0
 
 [node name="DiceJar" parent="SubViewport" unique_id=160290190 instance=ExtResource("3_34lna")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=876892397]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
