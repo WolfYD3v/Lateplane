@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d248yrvv68a16"]
 
 [ext_resource type="Script" uid="uid://gkgvsyagtt3" path="res://points/type_modifiers/end_point_type_modifier/end_point_type_modifier.gd" id="1_x34ny"]
-[ext_resource type="Texture2D" uid="uid://cdmdb0h0lkx5o" path="res://assets/images/run_context_sequences_images/sequence_3_image.png" id="2_sb6o5"]
+[ext_resource type="Texture2D" uid="uid://sxm522t5bw37" path="res://assets/images/plane/head/plane_head_frame_1.png" id="2_sb6o5"]
 
 [node name="EndPointTypeModifier" type="Node" unique_id=1490046106]
 script = ExtResource("1_x34ny")
+override_point_name = "EndPoint"
 override_texture = ExtResource("2_sb6o5")

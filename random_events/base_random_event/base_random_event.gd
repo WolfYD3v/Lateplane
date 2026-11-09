@@ -82,4 +82,6 @@ func popup() -> void:
 	await tween.finished
 
 
-func _on_close_button_pressed() -> void: queue_free()
+func _on_close_button_pressed() -> void:
+	RunManager.trigger_next_point_selection.emit()
+	queue_free()

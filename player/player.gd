@@ -23,12 +23,17 @@ func move(at_position: Vector2, instant: bool = false) -> void:
 		animation_player.speed_scale = 1.0
 		moving_tween.kill()
 	
-	if instant: position = at_position
+	if instant:
+		position = at_position
+		RunManager.player_changed_point.emit()
 	else:
 		animation_player.speed_scale = 2.5
 		moving_tween = get_tree().create_tween()
 		moving_tween.tween_property(self, "position", at_position, 1.0)
-		moving_tween.finished.connect(func(): animation_player.speed_scale = 1.0)
+		moving_tween.finished.connect(func():
+			animation_player.speed_scale = 1.0
+			RunManager.player_changed_point.emit()
+		)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	animation_player.play(anim_name)

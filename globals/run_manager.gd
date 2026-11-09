@@ -1,6 +1,8 @@
 extends Node
 
 signal current_point_updated
+signal player_changed_point
+signal trigger_next_point_selection
 
 const LEVELS_DIRECTORY_PATH: String = "res://levels/collection/"
 

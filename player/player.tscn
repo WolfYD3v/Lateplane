@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://732end1b3hcw" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="SpriteFrames" uid="uid://dtctw0pspcait" path="res://assets/sprite_frames/player_sprite_frames.tres" id="2_rkbax"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_112x8"]
-size = Vector2(22.285715, 44.000008)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ulk6"]
+radius = 11.14286
+height = 45.142868
 
 [sub_resource type="Animation" id="Animation_g1dw6"]
 length = 0.001
@@ -198,10 +199,8 @@ sprite_frames = ExtResource("2_rkbax")
 animation = &"head"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=2043786081]
-visible = false
-position = Vector2(0.85714364, 2.7247833e-07)
 scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_112x8")
+shape = SubResource("CapsuleShape2D_2ulk6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=925850359]
 libraries/ = SubResource("AnimationLibrary_g1dw6")

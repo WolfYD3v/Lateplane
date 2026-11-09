@@ -5,7 +5,8 @@ signal done
 
 @onready var sprite: Sprite2D = %Sprite
 @onready var ready_for_selection_canvas_group: CanvasGroup = %ReadyForSelectionCanvasGroup
-@onready var detection_area: Area2D = %DetectionArea
+@onready var mouse_detection_area: Area2D = %MouseDetectionArea
+@onready var player_detection_area: Area2D = %PlayerDetectionArea
 
 @export var know_points: Array[BasePoint] = []
 @export var end_point: bool = false
@@ -57,5 +58,5 @@ func _process(delta: float) -> void:
 	ready_for_selection_canvas_group.get_child(0).rotate(deg_to_rad(55.0 * delta))
 	ready_for_selection_canvas_group.get_child(1).rotate(deg_to_rad(-70.0 * delta))
 
-func _on_detection_area_mouse_entered() -> void: _mouse_in = true
-func _on_detection_area_mouse_exited() -> void: _mouse_in = false
+func _on_mouse_detection_area_mouse_entered() -> void: _mouse_in = true
+func _on_mouse_detection_area_mouse_exited() -> void: _mouse_in = false

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://1mt2a2kisdrd"]
 
 [ext_resource type="Script" uid="uid://bp4it547pb0kk" path="res://points/type_modifiers/test_point_type_modifier.gd" id="1_dhejn"]
+[ext_resource type="Texture2D" uid="uid://dxb41cwl7cotc" path="res://icon.svg" id="2_c0iqc"]
 
 [node name="TestPointTypeModifier" type="Node" unique_id=696749227]
 script = ExtResource("1_dhejn")
+override_point_name = "TestPoint"
+override_texture = ExtResource("2_c0iqc")

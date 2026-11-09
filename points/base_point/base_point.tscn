@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="2_d3yqc"]
 [ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_u5rcu"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_b1mdn"]
+radius = 20.0
+height = 40.0
+
 [sub_resource type="SphereMesh" id="SphereMesh_u5rcu"]
 radius = 16.0
 height = 45.0
@@ -12,15 +16,21 @@ height = 45.0
 radius = 25.0
 height = 32.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_b1mdn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5rcu"]
 radius = 20.0
-height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_112x8"]
-radius = 20.0
+radius = 15.0
 
 [node name="BasePoint" type="Node2D" unique_id=1587538988]
 script = ExtResource("1_tjw0a")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=480663738]
+unique_name_in_owner = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=344136821]
+scale = Vector2(0.99999994, 0.99999994)
+mesh = SubResource("SphereMesh_b1mdn")
 
 [node name="ReadyForSelectionCanvasGroup" type="CanvasGroup" parent="." unique_id=327436523]
 unique_name_in_owner = true
@@ -36,18 +46,18 @@ position = Vector2(0, 0.5000076)
 mesh = SubResource("SphereMesh_d3yqc")
 texture = ExtResource("3_u5rcu")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=480663738]
+[node name="MouseDetectionArea" type="Area2D" parent="." unique_id=654367628]
 unique_name_in_owner = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=344136821]
-scale = Vector2(0.99999994, 0.99999994)
-mesh = SubResource("SphereMesh_b1mdn")
+[node name="CollisionShape" type="CollisionShape2D" parent="MouseDetectionArea" unique_id=200324592]
+shape = SubResource("CircleShape2D_u5rcu")
+debug_color = Color(0.9594628, 0, 0.5241714, 0.41960785)
 
-[node name="DetectionArea" type="Area2D" parent="." unique_id=654367628]
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1555647837]
 unique_name_in_owner = true
 
-[node name="CollisionShape" type="CollisionShape2D" parent="DetectionArea" unique_id=200324592]
+[node name="CollisionShape" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=768851310]
 shape = SubResource("CircleShape2D_112x8")
 
-[connection signal="mouse_entered" from="DetectionArea" to="." method="_on_detection_area_mouse_entered"]
-[connection signal="mouse_exited" from="DetectionArea" to="." method="_on_detection_area_mouse_exited"]
+[connection signal="mouse_entered" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_entered"]
+[connection signal="mouse_exited" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_exited"]

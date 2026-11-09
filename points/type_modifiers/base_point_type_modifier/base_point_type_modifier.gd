@@ -1,6 +1,7 @@
 extends Node
 class_name BasePointTypeModifier
 
+@export var override_point_name: String = ""
 @export var override_texture: Texture2D = null
 
 const RANDOM_EVENTS_COLLECTION_PATH: String = "res://random_events/collection/"
@@ -10,7 +11,8 @@ var right_random_events_files: Array[String] = []
 
 func _ready() -> void:
 	parent = get_parent()
-	#parent.sprite.texture = override_texture
+	parent.sprite.texture = override_texture
+	if override_point_name != "": parent.name = override_point_name
 	
 	get_right_random_events()
 	act()
@@ -22,9 +24,7 @@ func get_right_random_events() -> void:
 				RANDOM_EVENTS_COLLECTION_PATH, _file
 			])
 			if RunManager.current_level and event_scene.location_related == RunManager.current_level.location:
-				right_random_events_files.append("%s%s" % [
-					RANDOM_EVENTS_COLLECTION_PATH, _file
-				])
+				right_random_events_files.append("%s%s" % [RANDOM_EVENTS_COLLECTION_PATH, _file])
 
 func load_event_file(path: String) -> BaseRandomEvent:
 	var event_packed_scene: PackedScene = load(path)

@@ -57,7 +57,6 @@ autowrap_mode = 3
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=59815420]
 unique_name_in_owner = true
-transparent_bg = true
 size = Vector2i(1152, 648)
 
 [node name="InitialDicePositionMaker" type="Marker3D" parent="SubViewport" unique_id=745497700]
