@@ -3,3 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://ptkf6bsup02d" path="res://random_events/base_random_event/base_random_event.tscn" id="1_lfk66"]
 
 [node name="BaseRandomEvent" unique_id=1013607034 instance=ExtResource("1_lfk66")]
+is_night_event = true
+event_name = "Night Event (-1 day)"
+event_description = "You have to sleep, one day is used in this process"
+roll_dice_for_chance = false
+
+[node name="NameLabel" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(1330058324) index="0" unique_id=263920349]
+text = "NIGHT EVENT (-1 DAY)"
+
+[node name="DescriptionLabel" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer" parent_id_path=PackedInt32Array(1330058324) index="2" unique_id=581564854]
+text = "You have to sleep, one day is used in this process"

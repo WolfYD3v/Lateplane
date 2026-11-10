@@ -42,6 +42,8 @@ func init_points() -> void:
 	points.remove_at(0)
 	for _point: Node in points:
 		if _point is EmptyPoint:
+			RunManager.current_point = _point
+			print(_point.night_point)
 			assert(not(_point.end_point and has_end_point), "An End Point Has Already Be Seted Up, Point '%s' Cannot Be An End Point !" % _point.name)
 			if _point.end_point and not has_end_point: has_end_point = _point
 			_point.try_asign_type()

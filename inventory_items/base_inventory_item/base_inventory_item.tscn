@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://65gkb82mwat4"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_xohvy"]
+[ext_resource type="Script" uid="uid://b53gjuefr11kx" path="res://inventory_items/base_inventory_item/base_inventory_item.gd" id="2_8ukve"]
+
+[node name="BaseInventoryItem" type="Control" unique_id=1734087873]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xohvy")
+script = ExtResource("2_8ukve")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1263414422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.52393126, 0.28316322, 0.409786, 1)
+
+[node name="NODES" type="VBoxContainer" parent="." unique_id=1015232325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="ItemNameLabel" type="Label" parent="NODES" unique_id=1361084902]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "ITEM NAME"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="ItemTextureRect" type="TextureRect" parent="NODES" unique_id=2125674434]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UseButton" type="Button" parent="." unique_id=1666599390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="UseButton" to="." method="_on_use_button_pressed"]

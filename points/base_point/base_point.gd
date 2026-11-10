@@ -10,6 +10,7 @@ signal done
 
 @export var know_points: Array[BasePoint] = []
 @export var end_point: bool = false
+@export var night_point: bool = false
 
 var _ready_for_selection: bool = false:
 	set(value):
@@ -25,7 +26,6 @@ var _mouse_in: bool = false
 func _ready() -> void:
 	_ready_for_selection = false
 	selected = false
-	if end_point: scale *= 1.5
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -33,6 +33,7 @@ func _input(event: InputEvent) -> void:
 			try_toggle_next_point_selection(false)
 			update_current_point()
 			done.emit()
+			MoneyManager.add_money(50)
 
 func update_current_point() -> void:
 	print("Know Points on Point '%s': " % name, know_points)

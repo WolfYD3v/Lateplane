@@ -7,6 +7,7 @@ class_name EmptyPoint
 
 const TYPE_MODIFIERS_DIRECTORY: String = "res://points/type_modifiers/"
 const END_POINT_TYPE_MODIFIER_PATH: String = "res://points/type_modifiers/end_point_type_modifier/end_point_type_modifier.tscn"
+const NIGHT_POINT_TYPE_MODIFIER_PATH: String = "res://points/type_modifiers/night_point_type_modifier/night_point_type_modifier.tscn"
 
 var _type_modifiers: Array[String] = []
 var current_type_modifier: BasePointTypeModifier = null
@@ -24,7 +25,8 @@ func try_asign_type() -> void:
 	var type_modifier_path: String = ""
 	
 	if end_point: type_modifier_path = END_POINT_TYPE_MODIFIER_PATH
-	elif randf_range(0.0, 1.0) > 0.15:
+	elif night_point: type_modifier_path = NIGHT_POINT_TYPE_MODIFIER_PATH
+	elif randf_range(0.0, 1.0) > 0.15 or night_point:
 		type_modifier_path = "%s%s" % [
 			TYPE_MODIFIERS_DIRECTORY, _type_modifiers.pick_random()
 		]

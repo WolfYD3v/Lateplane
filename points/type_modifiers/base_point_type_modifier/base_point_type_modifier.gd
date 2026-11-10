@@ -23,8 +23,10 @@ func get_right_random_events() -> void:
 			var event_scene: BaseRandomEvent = load_event_file("%s%s" % [
 				RANDOM_EVENTS_COLLECTION_PATH, _file
 			])
-			if RunManager.current_level and event_scene.location_related == RunManager.current_level.location:
-				right_random_events_files.append("%s%s" % [RANDOM_EVENTS_COLLECTION_PATH, _file])
+			if RunManager.current_point and event_scene.is_night_event == RunManager.current_point.night_point:
+				if RunManager.current_level and event_scene.location_related == RunManager.current_level.location:
+					right_random_events_files.append("%s%s" % [RANDOM_EVENTS_COLLECTION_PATH, _file])
+	print(right_random_events_files)
 
 func load_event_file(path: String) -> BaseRandomEvent:
 	var event_packed_scene: PackedScene = load(path)

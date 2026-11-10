@@ -1,6 +1,7 @@
 extends Node
 
 signal current_point_updated
+signal days_count_updated
 signal player_changed_point
 signal trigger_next_point_selection
 
@@ -15,11 +16,14 @@ var current_point: BasePoint = null:
 		current_point_updated.emit()
 var current_level: BaseLevel = null
 
-var money: float = 0.0
-var days_count: int = 0
+var days_count: int = 0:
+	set(value):
+		days_count = clampi(value, 0, 999)
+		days_count_updated.emit()
 
 func start_new_run() -> void:
-	money = 0.0
+	MoneyManager.money = 0
+	InventoryManager.clear_items()
 	get_all_levels()
 	change_level()
 

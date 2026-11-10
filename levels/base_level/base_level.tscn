@@ -5,7 +5,6 @@
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_dg36u"]
 [ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_o8y72"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
-[ext_resource type="Texture2D" uid="uid://bmd1phor554l7" path="res://assets/images/game_logo.png" id="5_2ulk6"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
 script = ExtResource("1_wgie4")
@@ -17,35 +16,28 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="EmptyPoint1" parent="PointsContainer" unique_id=1587538988 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(73, 84)
+position = Vector2(185, 156)
 know_points = [NodePath("../EmptyPoint2")]
 
-[node name="EmptyPoint2" parent="PointsContainer" unique_id=1948133695 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(73, -66)
-know_points = [NodePath("../EmptyPoint3"), NodePath("../EmptyPoint4")]
+[node name="EmptyPoint2" parent="PointsContainer" unique_id=1499117377 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(256, -15)
+know_points = [NodePath("../EmptyPoint3")]
+night_point = true
 
-[node name="EmptyPoint3" parent="PointsContainer" unique_id=1495119989 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(73, -216)
+[node name="EmptyPoint3" parent="PointsContainer" unique_id=2069496725 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(99, -206)
+know_points = [NodePath("../EmptyPoint4"), NodePath("../EmptyPoint5")]
+
+[node name="EmptyPoint4" parent="PointsContainer" unique_id=1666509940 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(-223, -265)
 know_points = [NodePath("../EmptyPoint5")]
 
-[node name="EmptyPoint4" parent="PointsContainer" unique_id=1560430806 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(223, -216)
+[node name="EmptyPoint5" parent="PointsContainer" unique_id=144912479 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
+position = Vector2(-286, -12)
 know_points = [NodePath("../EmptyPoint6")]
 
-[node name="EmptyPoint5" parent="PointsContainer" unique_id=37334334 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(73, -366)
-know_points = [NodePath("../EmptyPoint7")]
-
-[node name="EmptyPoint6" parent="PointsContainer" unique_id=1672378685 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(373, -366)
-know_points = [NodePath("../EmptyPoint7")]
-
-[node name="EmptyPoint7" parent="PointsContainer" unique_id=1607157704 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(223, -516)
-know_points = [NodePath("../EmptyPoint8")]
-
-[node name="EmptyPoint8" parent="PointsContainer" unique_id=1172315025 instance=ExtResource("3_o8y72")]
-position = Vector2(223, -666)
+[node name="EmptyPoint6" parent="PointsContainer" unique_id=1084722697 instance=ExtResource("3_o8y72")]
+position = Vector2(-127, 174)
 end_point = true
 
 [node name="Player" parent="." unique_id=177106641 instance=ExtResource("2_6qevo")]
@@ -62,50 +54,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("3_dg36u")
-
-[node name="Control" type="Control" parent="CanvasLayer/Control" unique_id=1206310744]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -350.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Control" unique_id=496596151]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.47058824, 0.47058824, 0.47058824, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Control" unique_id=954684679]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=532368417]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("5_2ulk6")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1222667829]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "When a point is ready to be clicked, and the player click on it, the signal 'done' is emited. Which will repeat this temporary cycle.
-When the player interacts with a point marked as 'End Point' (a point modified to change level when a player collides with it), the scene change !"
-autowrap_mode = 3
 
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
 layout_mode = 1

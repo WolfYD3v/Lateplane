@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://kqrqntlqdyyu"]
+
+[ext_resource type="FontFile" uid="uid://ddewx5vkrqt0k" path="res://assets/fonts/Redaction_50/Redaction50-Regular.ttf" id="1_5gl7i"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_g0cp7"]
+[ext_resource type="Script" uid="uid://bulyxix57mas7" path="res://player/gui/player_gui.gd" id="1_gf85j"]
+[ext_resource type="FontFile" uid="uid://egf1sa4vsra8" path="res://assets/fonts/Redaction_50/Redaction50-Bold.ttf" id="4_hyiho"]
+
+[node name="PlayerGUI" type="Control" unique_id=1691228575]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_g0cp7")
+script = ExtResource("1_gf85j")
+
+[node name="BottomBar" type="Control" parent="." unique_id=1738697672]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BlackBackground" type="ColorRect" parent="BottomBar" unique_id=943869623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -3.0
+offset_right = 24.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.008726646
+color = Color(0, 0, 0, 1)
+
+[node name="WhiteBackground" type="ColorRect" parent="BottomBar" unique_id=315688471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomBar" unique_id=2096311049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HorizontalSectionsContainer" type="HBoxContainer" parent="BottomBar/MarginContainer" unique_id=1100700749]
+layout_mode = 2
+
+[node name="DaysLeftInfoContainer" type="VBoxContainer" parent="BottomBar/MarginContainer/HorizontalSectionsContainer" unique_id=209004854]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="LabelsContainer" type="HBoxContainer" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/DaysLeftInfoContainer" unique_id=346462487]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DaysLeftTextLabel" type="Label" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/DaysLeftInfoContainer/LabelsContainer" unique_id=13689430]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5gl7i")
+theme_override_font_sizes/font_size = 25
+text = "Jours Restants:"
+
+[node name="DaysLeftCountLabel" type="Label" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/DaysLeftInfoContainer/LabelsContainer" unique_id=498093965]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5gl7i")
+theme_override_font_sizes/font_size = 25
+text = "0"
+
+[node name="PlayerResourcesInfosContainer" type="VBoxContainer" parent="BottomBar/MarginContainer/HorizontalSectionsContainer" unique_id=15561253]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MoneyInfoContainer" type="HBoxContainer" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/PlayerResourcesInfosContainer" unique_id=1134728221]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MoneySymbolLabel" type="Label" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/PlayerResourcesInfosContainer/MoneyInfoContainer" unique_id=464421601]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5gl7i")
+theme_override_font_sizes/font_size = 30
+text = "$"
+horizontal_alignment = 2
+
+[node name="MoneyAmountLabel" type="Label" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/PlayerResourcesInfosContainer/MoneyInfoContainer" unique_id=847603520]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5gl7i")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 2
+
+[node name="OpenInventoryButton" type="Button" parent="BottomBar/MarginContainer/HorizontalSectionsContainer/PlayerResourcesInfosContainer" unique_id=1506834526]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_hyiho")
+text = "INVENTAIRE"
+
+[node name="Inventory" type="Control" parent="." unique_id=2016693558]
+unique_name_in_owner = true
+z_index = 5
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WhiteBackground" type="ColorRect" parent="Inventory" unique_id=1367495052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.44790816, 0.44906473, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory" unique_id=410987407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/ScrollContainer" unique_id=1883649167]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="InventoryGridContainer" type="GridContainer" parent="Inventory/ScrollContainer/MarginContainer" unique_id=1753756943]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="CloseInventorySection" type="ColorRect" parent="Inventory" unique_id=865206876]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="CloseInventoryButton" type="Button" parent="Inventory/CloseInventorySection" unique_id=337081231]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -17.0
+offset_right = 53.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 25
+text = "FERMER"
+
+[connection signal="pressed" from="BottomBar/MarginContainer/HorizontalSectionsContainer/PlayerResourcesInfosContainer/OpenInventoryButton" to="." method="_on_open_inventory_button_pressed"]
+[connection signal="pressed" from="Inventory/CloseInventorySection/CloseInventoryButton" to="." method="_on_close_inventory_button_pressed"]

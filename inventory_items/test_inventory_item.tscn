@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cox1mplh15ean"]
+
+[ext_resource type="PackedScene" uid="uid://65gkb82mwat4" path="res://inventory_items/base_inventory_item/base_inventory_item.tscn" id="1_3p7qk"]
+[ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="2_sxaed"]
+
+[node name="TestInventoryItem" unique_id=1734087873 instance=ExtResource("1_3p7qk")]
+item_texture = ExtResource("2_sxaed")
+item_name = "Enquêteur"
+
+[node name="ItemNameLabel" parent="NODES" parent_id_path=PackedInt32Array(1015232325) index="0" unique_id=1361084902]
+text = "Enquêteur"
+
+[node name="ItemTextureRect" parent="NODES" parent_id_path=PackedInt32Array(1015232325) index="1" unique_id=2125674434]
+texture = ExtResource("2_sxaed")

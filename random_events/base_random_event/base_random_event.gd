@@ -8,6 +8,7 @@ class_name BaseRandomEvent
 @onready var body: Control = %Body
 @onready var illustration_texture_rect: TextureRect = %IllustrationTextureRect
 
+@export var is_night_event: bool = false
 @export var location_related: BaseLevel.Locations
 @export var event_name: String = "NAME":
 	set(value):
@@ -83,5 +84,6 @@ func popup() -> void:
 
 
 func _on_close_button_pressed() -> void:
+	if is_night_event: RunManager.days_count -= 1
 	RunManager.trigger_next_point_selection.emit()
 	queue_free()

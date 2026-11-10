@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://732end1b3hcw" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="SpriteFrames" uid="uid://dtctw0pspcait" path="res://assets/sprite_frames/player_sprite_frames.tres" id="2_rkbax"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="2_yw30f"]
+[ext_resource type="PackedScene" uid="uid://vaymv3jcikht" path="res://scenes/main_menu/clock/main_menu_clock.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://kqrqntlqdyyu" path="res://player/gui/player_gui.tscn" id="3_qjkh3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ulk6"]
 radius = 11.14286
@@ -168,8 +171,27 @@ _data = {
 scale = Vector2(3.5, 3.5)
 script = ExtResource("1_oul6g")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=899659702]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=127184909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_yw30f")
+
+[node name="PlayerGUI" parent="CanvasLayer/Control" unique_id=1691228575 instance=ExtResource("3_qjkh3")]
+layout_mode = 1
+
+[node name="MainMenuClock" parent="CanvasLayer" unique_id=205605212 instance=ExtResource("3_g1dw6")]
+position = Vector2(57, 588)
+scale = Vector2(0.99999976, 0.99999976)
+
 [node name="Camera" type="Camera2D" parent="." unique_id=2033049156]
-zoom = Vector2(1.1, 1.1)
+zoom = Vector2(0.65, 0.65)
 
 [node name="Body" type="Node2D" parent="." unique_id=1553571679]
 scale = Vector2(0.99999994, 0.99999994)
