@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxor017gmov06"]
+
+[ext_resource type="Shader" uid="uid://vb7orew08seb" path="res://assets/shaders/transition_1.gdshader" id="1_p7frw"]
+[ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="2_ljj1q"]
+
+[sub_resource type="Gradient" id="Gradient_bxlao"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ek6r"]
+gradient = SubResource("Gradient_bxlao")
+
+[resource]
+shader = ExtResource("1_p7frw")
+shader_parameter/luminance_cutoff = 0.0
+shader_parameter/invert = true
+shader_parameter/mask_texture = ExtResource("2_ljj1q")
+shader_parameter/display_texture = SubResource("GradientTexture1D_5ek6r")

@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bbdvestmtysfq"]
+
+[ext_resource type="Script" uid="uid://bdnftso0sbaag" path="res://items/shop_items/base_shop_item/base_shop_item.gd" id="1_63li5"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_gemhv"]
+[ext_resource type="Texture2D" uid="uid://bfn6g17fseq87" path="res://assets/images/plane/plane_full.png" id="2_l0grk"]
+
+[node name="BaseShopItem" type="Control" unique_id=1277744959]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = ExtResource("1_gemhv")
+script = ExtResource("1_63li5")
+item_texture = ExtResource("2_l0grk")
+item_name = "Plane"
+item_description = "Le joueur"
+
+[node name="Background" type="ColorRect" parent="." unique_id=732264789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.52393126, 0.28316322, 0.409786, 1)
+
+[node name="NODES" type="HBoxContainer" parent="." unique_id=1962037158]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="ItemTextureRect" type="TextureRect" parent="NODES" unique_id=1840518836]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_l0grk")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="InfosContainer" type="VBoxContainer" parent="NODES" unique_id=646764335]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ItemNameLabel" type="Label" parent="NODES/InfosContainer" unique_id=1532382224]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Plane"
+autowrap_mode = 3
+
+[node name="ItemDescriptionLabel" type="Label" parent="NODES/InfosContainer" unique_id=1748765748]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Le joueur"
+autowrap_mode = 3
+
+[node name="ItemPriceLabel" type="Label" parent="NODES/InfosContainer" unique_id=885771676]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Prix: $1"
+autowrap_mode = 3
+
+[node name="BuyButton" type="Button" parent="." unique_id=2067834300]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="DisabledColorRect" type="ColorRect" parent="." unique_id=692273930]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

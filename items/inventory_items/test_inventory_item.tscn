@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cox1mplh15ean"]
 
-[ext_resource type="PackedScene" uid="uid://65gkb82mwat4" path="res://inventory_items/base_inventory_item/base_inventory_item.tscn" id="1_3p7qk"]
+[ext_resource type="PackedScene" uid="uid://65gkb82mwat4" path="res://items/inventory_items/base_inventory_item/base_inventory_item.tscn" id="1_3p7qk"]
 [ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="2_sxaed"]
 
 [node name="TestInventoryItem" unique_id=1734087873 instance=ExtResource("1_3p7qk")]

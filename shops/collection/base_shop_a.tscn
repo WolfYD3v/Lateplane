@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bntv3rcooch87"]
+
+[ext_resource type="PackedScene" uid="uid://ccba4y6i3sgyv" path="res://shops/base_shop/base_shop.tscn" id="1_rasid"]
+
+[node name="BaseShopA" unique_id=1455770461 instance=ExtResource("1_rasid")]
+process_mode = 3

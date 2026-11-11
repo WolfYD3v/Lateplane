@@ -31,6 +31,7 @@ func _ready() -> void:
 	
 	first_point = points_container.get_child(0)
 	if first_point:
+		first_point.visited = true
 		first_point.update_current_point()
 		player.move(RunManager.current_point.get_player_position_on_point(), true)
 		first_point.try_toggle_next_point_selection()

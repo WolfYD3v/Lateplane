@@ -14,9 +14,6 @@ func _ready() -> void:
 	update_days_left_label()
 	update_inventory()
 	toggle_inventory(false)
-	
-	var e = preload("res://inventory_items/test_inventory_item.tscn").instantiate()
-	for l in range(16): InventoryManager.try_add_item(e.duplicate())
 
 func update_money_label() -> void: money_amount_label.text = str(MoneyManager.money)
 func update_days_left_label() -> void: days_left_count_label.text = str(RunManager.days_count)

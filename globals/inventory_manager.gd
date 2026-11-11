@@ -16,6 +16,8 @@ func try_add_item(item: BaseInventoryItem) -> bool:
 	_trigger_update_signal()
 	return true
 
+func can_store_more() -> bool: return MAX_ITEMS_COUNT - items.size() > 0
+
 func try_remove_item(item: BaseInventoryItem) -> bool:
 	if items.size() - 1 < 0: return false
 	

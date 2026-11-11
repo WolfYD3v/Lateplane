@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://65gkb82mwat4"]
 
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_xohvy"]
-[ext_resource type="Script" uid="uid://b53gjuefr11kx" path="res://inventory_items/base_inventory_item/base_inventory_item.gd" id="2_8ukve"]
+[ext_resource type="Script" uid="uid://b53gjuefr11kx" path="res://items/inventory_items/base_inventory_item/base_inventory_item.gd" id="2_8ukve"]
 
 [node name="BaseInventoryItem" type="Control" unique_id=1734087873]
 layout_mode = 3

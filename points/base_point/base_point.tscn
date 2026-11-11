@@ -1,50 +1,42 @@
 [gd_scene format=3 uid="uid://c8gtuqruswj6u"]
 
 [ext_resource type="Script" uid="uid://6wy6avmgqb33" path="res://points/base_point/base_point.gd" id="1_tjw0a"]
-[ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="2_d3yqc"]
-[ext_resource type="Texture2D" uid="uid://4vtuksyxgl5h" path="res://assets/materials/mooney_material.tres" id="3_u5rcu"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_b1mdn"]
-radius = 20.0
-height = 40.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_u5rcu"]
-radius = 16.0
-height = 45.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_d3yqc"]
-radius = 25.0
-height = 32.0
+[ext_resource type="Texture2D" uid="uid://b5dxd7qjdrhkb" path="res://assets/materials/point_gb_texture.tres" id="2_b1mdn"]
+[ext_resource type="Texture2D" uid="uid://cu6rvcd1fckhk" path="res://assets/images/points/ready_for_selection_a.png" id="3_b1mdn"]
+[ext_resource type="Texture2D" uid="uid://dibu50e5hy3t6" path="res://assets/images/points/ready_for_selection_b.png" id="4_htes5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5rcu"]
-radius = 20.0
+radius = 32.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_112x8"]
-radius = 15.0
+radius = 32.5
 
 [node name="BasePoint" type="Node2D" unique_id=1587538988]
 script = ExtResource("1_tjw0a")
 
+[node name="Background" type="Sprite2D" parent="." unique_id=256765176]
+unique_name_in_owner = true
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_b1mdn")
+
 [node name="Sprite" type="Sprite2D" parent="." unique_id=480663738]
 unique_name_in_owner = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=344136821]
-scale = Vector2(0.99999994, 0.99999994)
-mesh = SubResource("SphereMesh_b1mdn")
 
 [node name="ReadyForSelectionCanvasGroup" type="CanvasGroup" parent="." unique_id=327436523]
 unique_name_in_owner = true
 scale = Vector2(1.35, 1.35)
 
-[node name="MeshInstance2" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=536676157]
-position = Vector2(0, 0.5000113)
-mesh = SubResource("SphereMesh_u5rcu")
-texture = ExtResource("2_d3yqc")
+[node name="RingA" type="Sprite2D" parent="ReadyForSelectionCanvasGroup" unique_id=29872174]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.78431374)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("3_b1mdn")
 
-[node name="MeshInstance3" type="MeshInstance2D" parent="ReadyForSelectionCanvasGroup" unique_id=19992325]
-position = Vector2(0, 0.5000076)
-mesh = SubResource("SphereMesh_d3yqc")
-texture = ExtResource("3_u5rcu")
+[node name="RingB" type="Sprite2D" parent="ReadyForSelectionCanvasGroup" unique_id=2119288639]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("4_htes5")
 
 [node name="MouseDetectionArea" type="Area2D" parent="." unique_id=654367628]
 unique_name_in_owner = true
@@ -58,6 +50,7 @@ unique_name_in_owner = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=768851310]
 shape = SubResource("CircleShape2D_112x8")
+disabled = true
 
 [connection signal="mouse_entered" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_exited"]

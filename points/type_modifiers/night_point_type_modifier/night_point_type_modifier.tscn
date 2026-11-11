@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6q2lmx3c8k74"]
 
 [ext_resource type="PackedScene" uid="uid://bnld14lk34kvi" path="res://points/type_modifiers/base_point_type_modifier/base_point_type_modifier.tscn" id="1_h6322"]
-[ext_resource type="Texture2D" uid="uid://c0gmsl3ur5g6v" path="res://assets/textures/metal_noise_texture.tres" id="2_r5ute"]
+[ext_resource type="Texture2D" uid="uid://bp50f3icraaw7" path="res://assets/images/points/night_point.png" id="2_r5ute"]
 
 [node name="NightPointTypeModifier" unique_id=1384976020 instance=ExtResource("1_h6322")]
 override_point_name = "NightPoint"

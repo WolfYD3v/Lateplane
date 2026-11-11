@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_dg36u"]
 [ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_o8y72"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
+[ext_resource type="Texture2D" uid="uid://cwr335233ffle" path="res://assets/images/points/all_points.png" id="6_2ulk6"]
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
 script = ExtResource("1_wgie4")
@@ -54,6 +55,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("3_dg36u")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=1068228963]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 125.0
+grow_horizontal = 2
+texture = ExtResource("6_2ulk6")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
 layout_mode = 1

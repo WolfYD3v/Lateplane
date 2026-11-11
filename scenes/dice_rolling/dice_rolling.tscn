@@ -49,8 +49,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_bpvdg")
 theme_override_font_sizes/font_size = 75
-text = "Click to roll
-the dice  !!!§!!§!§§!!§!!"
+text = "Le MJ dit:
+\"Click pour testes ta chance\""
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

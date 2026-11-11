@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bmbsdtsymvl7v"]
+
+[ext_resource type="PackedScene" uid="uid://7v7j7m6aq7el" path="res://points/type_modifiers/shop_point_type_modifier/shop_point_type_modifier.tscn" id="1_8mx6j"]
+
+[node name="ShopAPointTypeModifier" unique_id=1384976020 instance=ExtResource("1_8mx6j")]
