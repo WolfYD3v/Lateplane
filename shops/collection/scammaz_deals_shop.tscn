@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c128daxjcq65t"]
+
+[ext_resource type="PackedScene" uid="uid://c2bkg82hmgmlh" path="res://shops/chance_shop/chance_shop.tscn" id="1_xmsd2"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="2_2vgmc"]
+[ext_resource type="Resource" uid="uid://dkfqd0hu71ry" path="res://items/shop_items/collection/temp_shop_item_a.tres" id="3_uenwf"]
+[ext_resource type="Resource" uid="uid://coa060lta4eo1" path="res://items/shop_items/collection/temp_shop_item_c.tres" id="5_mli8s"]
+[ext_resource type="Resource" uid="uid://cvi01f46iry7e" path="res://items/shop_items/collection/temp_shop_item_d.tres" id="6_b2ik2"]
+[ext_resource type="Resource" uid="uid://bgsrysy0go5tv" path="res://items/shop_items/collection/temp_shop_item_e.tres" id="7_301ei"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ky702"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ScammazDealsShop" unique_id=187868168 instance=ExtResource("1_xmsd2")]
+all_items = Array[ExtResource("2_2vgmc")]([ExtResource("3_uenwf"), ExtResource("6_b2ik2"), ExtResource("7_301ei"), ExtResource("5_mli8s")])
+max_item_displayed_count = Array[ExtResource("2_2vgmc")]([])
+transition_art = 0
+shop_name = null
+skip_transitions = "SHOP NAME"
+
+[node name="DiceRolling" parent="." index="2" unique_id=2100200545]
+texture = SubResource("ViewportTexture_ky702")

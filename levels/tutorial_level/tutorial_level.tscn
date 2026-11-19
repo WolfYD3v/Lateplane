@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://by2bg0886lprx"]
+
+[ext_resource type="PackedScene" uid="uid://qoim2xik8kgk" path="res://levels/base_level/base_level.tscn" id="1_6q8av"]
+[ext_resource type="Script" uid="uid://cikbv0yswjglb" path="res://levels/tutorial_level/tutorial_level.gd" id="2_pvtug"]
+[ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_swmne"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="4_otwf7"]
+[ext_resource type="PackedScene" uid="uid://sfjibbje4qwm" path="res://button_sfx_player/button_sfx_player.tscn" id="5_dlqhk"]
+[ext_resource type="PackedScene" uid="uid://djlufjofqaod" path="res://scenes/foggy_bg.tscn" id="5_jvosh"]
+[ext_resource type="AudioStream" uid="uid://cocidhp25tp4q" path="res://assets/sfxs/button_pressed_sfx.wav" id="6_0giwv"]
+[ext_resource type="PackedScene" uid="uid://c7yqjiinp10m3" path="res://levels/tutorial_level/tutorial_card/tutorial_card.tscn" id="6_r2trq"]
+[ext_resource type="Texture2D" uid="uid://cices844gukuu" path="res://assets/images/run_context_sequences_images/sequence_7_image.png" id="7_l60hg"]
+[ext_resource type="Texture2D" uid="uid://cf4gxrbnynuv4" path="res://assets/images/points/end_point.png" id="8_cxq8o"]
+[ext_resource type="Texture2D" uid="uid://n37jrismfkly" path="res://assets/images/points/luck_point.png" id="9_26fse"]
+[ext_resource type="Texture2D" uid="uid://dqpadv077fxfj" path="res://assets/images/points/shop_point.png" id="10_axelv"]
+[ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="11_7c7i4"]
+[ext_resource type="Texture2D" uid="uid://dxb41cwl7cotc" path="res://icon.svg" id="12_rrqyi"]
+[ext_resource type="Texture2D" uid="uid://vbtaa1iox5p8" path="res://assets/images/run_context_sequences_images/sequence_9_image.png" id="13_kluk5"]
+
+[node name="TutorialLevel" unique_id=1651772781 instance=ExtResource("1_6q8av")]
+script = ExtResource("2_pvtug")
+location_name = "TutoraCity"
+
+[node name="EmptyPoint" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="0" unique_id=1587538988 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+know_points = [NodePath("../EmptyPoint2")]
+
+[node name="EmptyPoint2" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="1" unique_id=813039173 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(0, -250)
+know_points = [NodePath("../EmptyPoint3"), NodePath("../EmptyPoint13")]
+
+[node name="EmptyPoint3" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="2" unique_id=755136787 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(0, -500)
+know_points = [NodePath("../EmptyPoint4"), NodePath("../EmptyPoint7")]
+
+[node name="EmptyPoint4" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="3" unique_id=243391025 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(0, -750)
+know_points = [NodePath("../EmptyPoint5")]
+night_point = true
+
+[node name="EmptyPoint5" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="4" unique_id=1966810988 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(250, -1000)
+know_points = [NodePath("../EmptyPoint6")]
+
+[node name="EmptyPoint6" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="5" unique_id=123351403 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(500, -1250)
+know_points = [NodePath("../EmptyPoint12")]
+
+[node name="EmptyPoint12" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="6" unique_id=1998090351 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(500, -1500)
+know_points = [NodePath("../EmptyPoint11")]
+night_point = true
+
+[node name="EmptyPoint7" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="7" unique_id=664752725 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(-250, -750)
+know_points = [NodePath("../EmptyPoint8")]
+night_point = true
+
+[node name="EmptyPoint8" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="8" unique_id=1778058586 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(-250, -1000)
+know_points = [NodePath("../EmptyPoint9")]
+
+[node name="EmptyPoint9" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="9" unique_id=1084622542 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(-250, -1250)
+know_points = [NodePath("../EmptyPoint10")]
+night_point = true
+
+[node name="EmptyPoint10" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="10" unique_id=1004634626 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(0, -1500)
+know_points = [NodePath("../EmptyPoint11")]
+
+[node name="EmptyPoint11" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="11" unique_id=470618321 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(250, -1750)
+know_points = [NodePath("../EmptyPoint16")]
+
+[node name="EmptyPoint13" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="12" unique_id=310685257 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(250, -500)
+know_points = [NodePath("../EmptyPoint14")]
+
+[node name="EmptyPoint14" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="13" unique_id=1617135382 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(500, -750)
+know_points = [NodePath("../EmptyPoint5"), NodePath("../EmptyPoint15")]
+night_point = true
+
+[node name="EmptyPoint15" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="14" unique_id=343219461 node_paths=PackedStringArray("know_points") instance=ExtResource("3_swmne")]
+position = Vector2(500, -1000)
+know_points = [NodePath("../EmptyPoint6")]
+
+[node name="EmptyPoint16" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="15" unique_id=2045754724 instance=ExtResource("3_swmne")]
+position = Vector2(250, -2000)
+end_point = true
+
+[node name="TutorialSection" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(23109835) index="0" unique_id=591701114]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_otwf7")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TutorialSection" index="0" unique_id=490199954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PreviousCardButton" type="Button" parent="CanvasLayer/TutorialSection/MarginContainer" index="0" unique_id=702023588]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+text = "<<< Précédent"
+alignment = 0
+
+[node name="ButtonSFXPlayer" parent="CanvasLayer/TutorialSection/MarginContainer/PreviousCardButton" index="0" unique_id=1495253200 instance=ExtResource("5_dlqhk")]
+stream = ExtResource("6_0giwv")
+volume_db = -15.0
+pitch_scale = 4.0
+
+[node name="NextCardButton" type="Button" parent="CanvasLayer/TutorialSection/MarginContainer" index="1" unique_id=983758111]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+text = "Suivant >>>"
+alignment = 2
+
+[node name="ButtonSFXPlayer" parent="CanvasLayer/TutorialSection/MarginContainer/NextCardButton" index="0" unique_id=1393697371 instance=ExtResource("5_dlqhk")]
+stream = ExtResource("6_0giwv")
+volume_db = -15.0
+pitch_scale = 4.0
+
+[node name="Control" type="Control" parent="CanvasLayer/TutorialSection" index="1" unique_id=128489194]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackOutline" type="ColorRect" parent="CanvasLayer/TutorialSection/Control" index="0" unique_id=1727105137]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(550, 550)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -260.0
+offset_right = 260.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.04363323
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="BlackOutlineBis" type="ColorRect" parent="CanvasLayer/TutorialSection/Control" index="1" unique_id=1417768195]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -260.0
+offset_right = 260.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="FoggyBG" parent="CanvasLayer/TutorialSection/Control" index="2" unique_id=49063268 instance=ExtResource("5_jvosh")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TutorialSection/Control" index="3" unique_id=965030133]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CardsContainer" type="Control" parent="CanvasLayer/TutorialSection/Control/MarginContainer" index="0" unique_id=730744808]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TutorialCard1" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="0" unique_id=2093123670 instance=ExtResource("6_r2trq")]
+layout_mode = 1
+card_title = "Les bases"
+card_image = ExtResource("7_l60hg")
+card_info = "Le jeu va choisir une ville aléatoire parmis celle disponibles . La ville en elle même va, à travers un système de génération aléatoire des Points un peu trop poussé pour l'expliquer, devenir aléatoire .
+Même si le placement de tous les Points reste identique dans toutes les runs, la nature même des Points peut varier ."
+
+[node name="TutorialCard2" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="1" unique_id=83138990 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "Les bases"
+card_image = ExtResource("7_l60hg")
+card_info = "Dans chaque niveau, tu dois traverser les villes dans un nombre de jours imparti .
+Ton but est d'atteindre le seul est unique aéroport de la ville (un peu suspension d'incrédulité ne faiit pas de mal mr. je suis logique) dans ces x nombre de jours donnés .
+Dans le cas où cet objectif n'a pas été réalisé, la run est perdue ."
+
+[node name="TutorialCard3" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="2" unique_id=1858590122 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "Les Points"
+card_image = ExtResource("8_cxq8o")
+card_info = "Comme dit précédement, les Points définissent le parcours statique proposé par les villes .
+Il existe plusieurs types de Points, dont le plus important : L'End Point . Il te permet de prendre un avion vers la prochaine ville (ou de finir le tutoriel dans ce cas) .
+Quand un Point est entouré d'un cercle coloré, tu peux aller sur ce dernier . C'est comme ça que tu te déplaces dans la ville ."
+
+[node name="TutorialCard4" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="3" unique_id=1526169572 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "Les Points"
+card_image = ExtResource("9_26fse")
+card_info = "Certains Points activeront des évènements, choisis au hasard . Bien que le MJ peut intervenir pour te faire tester ta chance, avec un jet ."
+
+[node name="TutorialCard5" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="4" unique_id=1135519467 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "Les Shops"
+card_image = ExtResource("10_axelv")
+card_info = "Il existe un type de Points qui permet de rentrer dans une petite boutique locale . Celle-ci est choisie aléatoirement, et propose à la vente des Items qui peuvent changer comment se passe la Run .
+Pour les acheter, tu auras besoin de sous . Heureusement que tu en gagnes à chaques fois que tu arrives sur un Point ! Quel heureux hasard putain ;)"
+
+[node name="TutorialCard6" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="5" unique_id=405586601 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "L'inventaire"
+card_image = ExtResource("11_7c7i4")
+card_info = "Tes Items achetés arriveront dans ton Inventaire . Tu peux y accéder en cliquant en bas à droite de l'écran .
+Pour utiliser un Item, c'est facile : Cliquer sur l'Item, depuis ton Inventaire ."
+
+[node name="TutorialCard7" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="6" unique_id=989410142 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "Le journal"
+card_image = ExtResource("12_rrqyi")
+card_info = "Le MJ suit ton voyage de très près .
+Il tient un journal de la globalité des évènements de ton voyage . Pourquoi ? Don't know . Mais il te le fait lire quand ta run est finie (en cas de victoire, comme de défaite)"
+
+[node name="TutorialCard8" parent="CanvasLayer/TutorialSection/Control/MarginContainer/CardsContainer" index="7" unique_id=1327760264 instance=ExtResource("6_r2trq")]
+visible = false
+layout_mode = 1
+card_title = "A toi de jouer now !"
+card_image = ExtResource("13_kluk5")
+card_info = "Tout a été dit .
+gud luk !"
+
+[connection signal="pressed" from="CanvasLayer/TutorialSection/MarginContainer/PreviousCardButton" to="." method="_on_previous_card_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TutorialSection/MarginContainer/NextCardButton" to="." method="_on_next_card_button_pressed"]

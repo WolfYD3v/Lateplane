@@ -5,4 +5,5 @@
 
 [node name="NightPointTypeModifier" unique_id=1384976020 instance=ExtResource("1_h6322")]
 override_point_name = "NightPoint"
+override_point_description = "Il va être temps de dormir, demain sera un autre jour"
 override_texture = ExtResource("2_r5ute")

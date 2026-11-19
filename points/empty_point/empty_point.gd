@@ -18,7 +18,7 @@ func _ready() -> void:
 	RunManager.player_changed_point.connect(trigger_event)
 
 func get_all_type_modifiers() -> void:
-	for file: String in DirAccess.get_files_at(TYPE_MODIFIERS_DIRECTORY):
+	for file: String in FilesGetter.get_files_at(TYPE_MODIFIERS_DIRECTORY):
 		if file.ends_with(".tscn"): _type_modifiers.append(file)
 
 func try_asign_type() -> void:

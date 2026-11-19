@@ -97,6 +97,7 @@ texture = ExtResource("2_ku0qj")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1506275272]
 unique_name_in_owner = true
 stream = ExtResource("5_pfq3y")
+volume_db = -10.0
 max_polyphony = 5
 
 [node name="BaseTextMeshInstance" type="MeshInstance2D" parent="." unique_id=884768068]

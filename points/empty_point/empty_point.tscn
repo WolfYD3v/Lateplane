@@ -6,10 +6,11 @@
 
 [node name="EmptyPoint" unique_id=1587538988 instance=ExtResource("1_c6312")]
 script = ExtResource("2_ak1f1")
+description = "Rien ne va se passer ici"
 
-[node name="Sprite" parent="." index="0" unique_id=480663738]
+[node name="Sprite" parent="." index="1" unique_id=480663738]
 texture = ExtResource("3_303ik")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=332185632]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6" unique_id=332185632]
 unique_name_in_owner = true
 layer = 95

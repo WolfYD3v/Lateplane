@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cjundchx080ao"]
+
+[ext_resource type="PackedScene" uid="uid://qoim2xik8kgk" path="res://levels/base_level/base_level.tscn" id="1_pnl1a"]
+[ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="2_numla"]
+
+[node name="ParisLevel" unique_id=1651772781 instance=ExtResource("1_pnl1a")]
+
+[node name="EmptyPoint1" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="0" unique_id=1587538988 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+know_points = [NodePath("../EmptyPoint2")]
+
+[node name="EmptyPoint2" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="1" unique_id=2058589073 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(0, -250)
+know_points = [NodePath("../EmptyPoint3"), NodePath("../EmptyPoint8")]
+
+[node name="EmptyPoint3" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="2" unique_id=781041551 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(-250, -500)
+know_points = [NodePath("../EmptyPoint4")]
+night_point = true
+
+[node name="EmptyPoint4" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="3" unique_id=559637243 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(-250, -750)
+know_points = [NodePath("../EmptyPoint5")]
+
+[node name="EmptyPoint5" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="4" unique_id=1315061643 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(-500, -1000)
+know_points = [NodePath("../EmptyPoint6")]
+
+[node name="EmptyPoint6" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="5" unique_id=363260185 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(-250, -1250)
+know_points = [NodePath("../EmptyPoint7"), NodePath("../EmptyPoint11")]
+night_point = true
+
+[node name="EmptyPoint7" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="6" unique_id=2066772586 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(0, -1500)
+know_points = [NodePath("../EmptyPoint14")]
+
+[node name="EmptyPoint8" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="7" unique_id=1044338999 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(250, -500)
+know_points = [NodePath("../EmptyPoint9")]
+
+[node name="EmptyPoint9" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="8" unique_id=1315534873 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(250, -750)
+know_points = [NodePath("../EmptyPoint10")]
+night_point = true
+
+[node name="EmptyPoint10" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="9" unique_id=891824827 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(250, -1000)
+know_points = [NodePath("../EmptyPoint11"), NodePath("../EmptyPoint12")]
+
+[node name="EmptyPoint11" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="10" unique_id=1936478821 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(0, -1250)
+know_points = [NodePath("../EmptyPoint7")]
+night_point = true
+
+[node name="EmptyPoint12" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="11" unique_id=1721072266 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(500, -1250)
+know_points = [NodePath("../EmptyPoint13")]
+
+[node name="EmptyPoint13" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="12" unique_id=991489821 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(500, -1500)
+know_points = [NodePath("../EmptyPoint14")]
+night_point = true
+
+[node name="EmptyPoint14" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="13" unique_id=1622602670 node_paths=PackedStringArray("know_points") instance=ExtResource("2_numla")]
+position = Vector2(250, -1750)
+know_points = [NodePath("../EmptyPoint15")]
+
+[node name="EmptyPoint15" parent="PointsContainer" parent_id_path=PackedInt32Array(523040712) index="14" unique_id=1459389946 instance=ExtResource("2_numla")]
+position = Vector2(250, -2000)
+end_point = true

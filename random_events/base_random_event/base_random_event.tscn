@@ -4,6 +4,232 @@
 [ext_resource type="Script" uid="uid://c18n56jwdxtkf" path="res://random_events/base_random_event/base_random_event.gd" id="1_vobu3"]
 [ext_resource type="AudioStream" uid="uid://dswjmdjrtjnap" path="res://assets/voice_lines/run_context_sequences/sequence_8.mp3" id="3_c427q"]
 [ext_resource type="Texture2D" uid="uid://bfn6g17fseq87" path="res://assets/images/plane/plane_full.png" id="3_lym3k"]
+[ext_resource type="Shader" uid="uid://vb7orew08seb" path="res://assets/shaders/transition_1.gdshader" id="4_vojv7"]
+[ext_resource type="Texture2D" uid="uid://umbim7oj6yq8" path="res://assets/images/random_event_card/random_event_card_back_face.png" id="5_lym3k"]
+[ext_resource type="Texture2D" uid="uid://l0r06wpgv7tl" path="res://assets/images/random_event_card/random_event_card_front_face_bg.png" id="6_5jf2s"]
+[ext_resource type="Texture2D" uid="uid://dyuj0gmrlu1x" path="res://assets/images/random_event_card/random_event_card_front_face_overlay.png" id="7_savu5"]
+[ext_resource type="PackedScene" uid="uid://djlufjofqaod" path="res://scenes/foggy_bg.tscn" id="8_c30l5"]
+[ext_resource type="Material" uid="uid://cmg18tippjkc6" path="res://assets/materials/dm_material.tres" id="8_mqmh6"]
+[ext_resource type="FontFile" uid="uid://egf1sa4vsra8" path="res://assets/fonts/Redaction_50/Redaction50-Bold.ttf" id="9_fksle"]
+
+[sub_resource type="Gradient" id="Gradient_kncla"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kncla"]
+gradient = SubResource("Gradient_kncla")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jllt8"]
+fractal_type = 3
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ki4yu"]
+noise = SubResource("FastNoiseLite_jllt8")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlc8q"]
+resource_local_to_scene = true
+shader = ExtResource("4_vojv7")
+shader_parameter/luminance_cutoff = 0.0
+shader_parameter/invert = true
+shader_parameter/mask_texture = SubResource("NoiseTexture2D_ki4yu")
+shader_parameter/display_texture = SubResource("GradientTexture1D_kncla")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_112x8"]
+viewport_path = NodePath("CardSubViewport")
+
+[sub_resource type="Environment" id="Environment_c30l5"]
+background_color = Color(1, 1, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_112x8"]
+radius = 0.2
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlp30"]
+albedo_texture = ExtResource("5_lym3k")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_112x8"]
+size = Vector2(1.35, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_savu5"]
+viewport_path = NodePath("SubViewportContainer/FrontFaceSubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_savu5"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_savu5")
+
+[sub_resource type="Animation" id="Animation_savu5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardSubViewport/DMArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.3490658)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardSubViewport/DMArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.7, -6.3, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardSubViewport/DMArm/CardModel:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.2617994)]
+}
+
+[sub_resource type="Animation" id="Animation_mqmh6"]
+resource_name = "turn_card"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardSubViewport/DMArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(-0.5, -2),
+"update": 0,
+"values": [Vector3(0, 0, -0.3490658), Vector3(0, 3.1415927, -0.34906584)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardSubViewport/DMArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.35),
+"transitions": PackedFloat32Array(-0.5, -2),
+"update": 0,
+"values": [Vector3(-0.7, -6.3, -1.5), Vector3(0.6, -6.3, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardSubViewport/DMArm/CardModel:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(-2, -0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0.2617994), Vector3(-0.08726646, -0.08726646, 0.21816616)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c30l5"]
+_data = {
+&"RESET": SubResource("Animation_savu5"),
+&"turn_card": SubResource("Animation_mqmh6")
+}
+
+[sub_resource type="Animation" id="Animation_kncla"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlertSection:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/luminance_cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:material:shader_parameter/display_texture:gradient:colors")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fksle"]
+resource_name = "normal"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlertSection:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.75, 2.5, 3),
+"transitions": PackedFloat32Array(1, 0.5, -2, -0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 0.25), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/luminance_cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.4, 2.8, 3),
+"transitions": PackedFloat32Array(2, -2, -0.5, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("ColorRect:material:shader_parameter/display_texture:gradient:colors")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.4, 3),
+"transitions": PackedFloat32Array(-2, -0.5, -2, -0.5, -2),
+"update": 0,
+"values": [PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1), PackedColorArray(0.40793034, 0.603679, 0.59645444, 1, 0.06023024, 0.12016506, 0.11811613, 1), PackedColorArray(0.6790795, 0.2814637, 0.70596117, 1, 0.27816632, 0.12705567, 0.25033185, 1), PackedColorArray(0.740012, 0.47473794, 0.10342134, 1, 0.2829197, 0.16951814, 0.016348524, 1), PackedColorArray(0.31278306, 0.5001756, 0.15613344, 1, 0.093540154, 0.16856238, 0.03189401, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kncla"]
+_data = {
+&"RESET": SubResource("Animation_kncla"),
+&"normal": SubResource("Animation_fksle")
+}
 
 [node name="BaseRandomEvent" type="Control" unique_id=1013607034]
 layout_mode = 3
@@ -12,99 +238,251 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_d132h")
 script = ExtResource("1_vobu3")
+event_description = "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription"
 event_illustration = ExtResource("3_lym3k")
-roll_dice_for_chance = true
 
-[node name="Body" type="Control" parent="." unique_id=115779710]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(750, 400)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -375.0
-offset_top = -200.0
-offset_right = 375.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Background" type="ColorRect" parent="Body" unique_id=88681995]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1204489188]
+material = SubResource("ShaderMaterial_wlc8q")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.27387273, 0.27387273, 0.27387273, 1)
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Body" unique_id=714126505]
+[node name="CardTextureRect" type="TextureRect" parent="." unique_id=838339663]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+texture = SubResource("ViewportTexture_112x8")
+stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Body/MarginContainer" unique_id=1040173698]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer" unique_id=1407670049]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 15
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Body/MarginContainer/HBoxContainer/VBoxContainer" unique_id=821958535]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer" unique_id=1330058324]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="NameLabel" type="Label" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=263920349]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-text = "NAME"
-autowrap_mode = 3
-
-[node name="ColorRect" type="ColorRect" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=663032814]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 2
-
-[node name="DescriptionLabel" type="Label" parent="Body/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=581564854]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-text = "Description"
-autowrap_mode = 3
-
-[node name="CloseButton" type="Button" parent="Body/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1262039774]
-layout_mode = 2
-text = "OK"
+[node name="CloseButton" type="Button" parent="CardTextureRect" unique_id=1903299783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 flat = true
 
-[node name="IllustrationTextureRect" type="TextureRect" parent="Body/MarginContainer/HBoxContainer" unique_id=1681615126]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1467438202]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = -549.0
+offset_top = 984.0
+offset_right = -189.0
+offset_bottom = 1496.0
+
+[node name="FrontFaceSubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1132671208]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(360, 512)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/FrontFaceSubViewport" unique_id=677144183]
+custom_minimum_size = Vector2(360, 500)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_d132h")
+
+[node name="FrontfaceBG" type="TextureRect" parent="SubViewportContainer/FrontFaceSubViewport/Control" unique_id=364760716]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5jf2s")
+expand_mode = 1
+
+[node name="ScrollContainer" type="MarginContainer" parent="SubViewportContainer/FrontFaceSubViewport/Control" unique_id=108372541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer" unique_id=1113034034]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer" unique_id=128322940]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_right = 50
+
+[node name="NameLabel" type="Label" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer/MarginContainer" unique_id=1784451107]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "NAME"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="IllustrationTextureRect" type="TextureRect" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer" unique_id=1087264168]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_vertical = 3
 texture = ExtResource("3_lym3k")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer" unique_id=417855741]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 110
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer/MarginContainer2" unique_id=1917176990]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+mouse_filter = 0
+
+[node name="DescriptionLabel" type="Label" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer/MarginContainer2/ScrollContainer" unique_id=934195673]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="FrontfaceOverlay" type="TextureRect" parent="SubViewportContainer/FrontFaceSubViewport/Control" unique_id=1391500203]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_savu5")
+expand_mode = 1
+
+[node name="AlertSection" type="Control" parent="." unique_id=2014898789]
+custom_minimum_size = Vector2(0, 100)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+
+[node name="BlackLine" type="ColorRect" parent="AlertSection" unique_id=597384522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="AlertSection" unique_id=1856389037]
+custom_minimum_size = Vector2(0, 75)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FoggyBG" parent="AlertSection/Control" unique_id=49063268 instance=ExtResource("8_c30l5")]
+layout_mode = 1
+
+[node name="AlertTextLabel" type="Label" parent="AlertSection/Control" unique_id=32579159]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("9_fksle")
+theme_override_font_sizes/font_size = 35
+text = "Que va t-il t'arriver ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardSubViewport" type="SubViewport" parent="." unique_id=1118643758]
+transparent_bg = true
+size = Vector2i(360, 512)
+
+[node name="Camera" type="Camera3D" parent="CardSubViewport" unique_id=124660710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0.39999998)
+environment = SubResource("Environment_c30l5")
+
+[node name="DMArm" type="MeshInstance3D" parent="CardSubViewport" unique_id=1158350317]
+transform = Transform3D(0.9396925, 0.34202006, 0, -0.34202006, 0.9396925, 0, 0, 0, 1, -0.7, -6.3, -1.5)
+material_override = ExtResource("8_mqmh6")
+mesh = SubResource("CapsuleMesh_112x8")
+
+[node name="CardModel" type="Node3D" parent="CardSubViewport/DMArm" unique_id=317765233]
+transform = Transform3D(0.9659255, -0.25881895, 0, 0.25881895, 0.9659255, 0, 0, 0, 1, 0.27785957, 1.5255656, 0)
+
+[node name="Backface" type="MeshInstance3D" parent="CardSubViewport/DMArm/CardModel" unique_id=1796777642]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_jlp30")
+mesh = SubResource("PlaneMesh_112x8")
+
+[node name="Frontface" type="MeshInstance3D" parent="CardSubViewport/DMArm/CardModel" unique_id=671742646]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_savu5")
+mesh = SubResource("PlaneMesh_112x8")
 
 [node name="DMVoiceLineAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=986822562]
 unique_name_in_owner = true
 stream = ExtResource("3_c427q")
 
-[connection signal="pressed" from="Body/MarginContainer/HBoxContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="CardAnimationPlayer" type="AnimationPlayer" parent="." unique_id=188294221]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_c30l5")
+
+[node name="AlertSectionAnimationPlayer" type="AnimationPlayer" parent="." unique_id=894019901]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_kncla")
+
+[connection signal="pressed" from="CardTextureRect/CloseButton" to="." method="_on_close_button_pressed"]

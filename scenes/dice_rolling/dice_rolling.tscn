@@ -9,6 +9,8 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_34lna"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="Environment" id="Environment_fh8w7"]
+
 [node name="DiceRolling" type="TextureRect" unique_id=2100200545]
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +20,21 @@ grow_vertical = 2
 theme = ExtResource("1_cjcso")
 texture = SubResource("ViewportTexture_34lna")
 script = ExtResource("1_oady1")
+
+[node name="NumberLabel" type="Label" parent="." unique_id=1152348860]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("5_bpvdg")
+theme_override_font_sizes/font_size = 65
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ClickInstruction" type="Control" parent="." unique_id=53616614]
 unique_name_in_owner = true
@@ -58,6 +75,9 @@ autowrap_mode = 3
 [node name="SubViewport" type="SubViewport" parent="." unique_id=59815420]
 unique_name_in_owner = true
 size = Vector2i(1152, 648)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=885078937]
+environment = SubResource("Environment_fh8w7")
 
 [node name="InitialDicePositionMaker" type="Marker3D" parent="SubViewport" unique_id=745497700]
 unique_name_in_owner = true

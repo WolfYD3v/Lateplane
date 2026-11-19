@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_ir5dn"]
 [ext_resource type="Script" uid="uid://0ym2bimhjwsq" path="res://scenes/intro/intro.gd" id="1_qeukb"]
-[ext_resource type="VideoStream" uid="uid://bfbdrx032dhb8" path="res://assets/videos/dev_intro.ogv" id="3_teox7"]
+[ext_resource type="VideoStream" uid="uid://o84c5e7cy6jd" path="res://assets/videos/dev_intro.ogv" id="3_teox7"]
 
 [node name="Intro" type="Control" unique_id=380447341]
 custom_minimum_size = Vector2(1152, 648)

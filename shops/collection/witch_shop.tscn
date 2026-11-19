@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hnsoyispflgw"]
+
+[ext_resource type="PackedScene" uid="uid://ccba4y6i3sgyv" path="res://shops/base_shop/base_shop.tscn" id="1_hds33"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="2_bt0c3"]
+[ext_resource type="Resource" uid="uid://dkfqd0hu71ry" path="res://items/shop_items/collection/temp_shop_item_a.tres" id="3_g7uxw"]
+[ext_resource type="Resource" uid="uid://chnm5cyy75ppt" path="res://items/shop_items/collection/temp_shop_item_b.tres" id="4_ejx7g"]
+[ext_resource type="Resource" uid="uid://coa060lta4eo1" path="res://items/shop_items/collection/temp_shop_item_c.tres" id="5_dxkdk"]
+[ext_resource type="Texture2D" uid="uid://c3rman0ob24dx" path="res://assets/images/shops/witch_shop/witch_shop_art.png" id="6_tyi20"]
+[ext_resource type="AudioStream" uid="uid://gxqkfolkx0cv" path="res://assets/musics/main_menu_ambiance_loop.mp3" id="7_5jlo5"]
+
+[node name="WitchShop" unique_id=187868168 instance=ExtResource("1_hds33")]
+all_items = Array[ExtResource("2_bt0c3")]([ExtResource("3_g7uxw"), ExtResource("4_ejx7g"), ExtResource("5_dxkdk")])
+max_item_displayed_count = 3
+transition_art = ExtResource("6_tyi20")
+shop_name = "Da Witch Shop"
+song = ExtResource("7_5jlo5")
+
+[node name="ShopNameLabel" parent="Transition" parent_id_path=PackedInt32Array(1438894444) index="0" unique_id=1496480165]
+text = "Da Witch Shop"

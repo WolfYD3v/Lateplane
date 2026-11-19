@@ -10,25 +10,33 @@ enum Locations {
 @onready var map_container: Node2D = %MapContainer
 @onready var points_container: Node2D = %PointsContainer
 @onready var player: Player = %Player
+@onready var transition: ColorRect = %Transition
+@onready var transition_animation_player: AnimationPlayer = %TransitionAnimationPlayer
+@onready var song_audio_stream_player: AudioStreamPlayer = %SongAudioStreamPlayer
 
 @export var dm_voice_line: AudioStream = null
 @export_range(5, 6, 1, "or_greater") var max_days_count: int = 5
 @export var location: Locations = Locations.PARIS
+@export var location_name: String = "LOCATION_NAME"
 
 var has_end_point: BasePoint = null
 var first_point: BasePoint = null
 
 func _ready() -> void:
-	RunManager.current_level = self
+	try_play_transition("out")
+	song_audio_stream_player.play()
+	
 	RunManager.current_point_updated.connect(
 		func(): player.move(RunManager.current_point.get_player_position_on_point())
 	)
 	RunManager.trigger_next_point_selection.connect(
 		func(): RunManager.current_point.try_toggle_next_point_selection()
 	)
-	RunManager.days_count = max_days_count
-	init_points()
 	
+	RunManager.current_level = self
+	RunManager.days_count = max_days_count
+	
+	init_points()
 	first_point = points_container.get_child(0)
 	if first_point:
 		first_point.visited = true
@@ -50,3 +58,11 @@ func init_points() -> void:
 			_point.try_asign_type()
 	
 	assert(has_end_point, "No End Point Has Been Found, The Level Is Incomplete !")
+
+func try_play_transition(anim_name: String) -> void:
+	transition.material.set_shader_parameter("normal", Vector2(
+		randf_range(1.0, 25.0), randf_range(1.0, 25.0)
+	))
+	if transition_animation_player.has_animation(anim_name):
+		transition_animation_player.play(anim_name)
+		await transition_animation_player.animation_finished

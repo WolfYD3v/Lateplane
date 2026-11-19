@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2bkg82hmgmlh"]
+
+[ext_resource type="PackedScene" uid="uid://ccba4y6i3sgyv" path="res://shops/base_shop/base_shop.tscn" id="1_mokda"]
+[ext_resource type="Script" uid="uid://5o2a503pd1lp" path="res://shops/chance_shop/chance_shop.gd" id="2_ixsvt"]
+[ext_resource type="PackedScene" uid="uid://te267ucufhas" path="res://scenes/dice_rolling/dice_rolling.tscn" id="3_rh8xk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rh8xk"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ChanceShop" unique_id=187868168 instance=ExtResource("1_mokda")]
+script = ExtResource("2_ixsvt")
+
+[node name="DiceRolling" parent="." index="2" unique_id=2100200545 instance=ExtResource("3_rh8xk")]
+unique_name_in_owner = true
+visible = false
+texture = SubResource("ViewportTexture_rh8xk")

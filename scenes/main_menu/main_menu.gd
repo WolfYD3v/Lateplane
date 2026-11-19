@@ -5,9 +5,10 @@ class_name MainMenu
 @onready var main_menu_clock: MainMenuClock = %MainMenuClock
 @onready var background: TextureRect = %Background
 @onready var black_fading: ColorRect = %BlackFading
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 const RUN_CONTEXT_SCENE_PATH: String = "res://scenes/run_context/run_context.tscn"
+const TUTORIAL_LEVEL_SCENE_PATH: String = "res://levels/tutorial_level/tutorial_level.tscn"
 const GAME_TITLE_FRAMES_DIRECTORY: String = "res://assets/images/game_title_frames/"
 const BACKGROUNDS_DIRECTORY: String = "res://assets/images/main_menu_backgrounds/"
 
@@ -24,13 +25,13 @@ func _ready() -> void:
 	main_menu_clock.minutes_updated.connect(update_background)
 
 func get_game_title_frames() -> void:
-	for _file: String in DirAccess.get_files_at(GAME_TITLE_FRAMES_DIRECTORY):
+	for _file: String in FilesGetter.get_files_at(GAME_TITLE_FRAMES_DIRECTORY):
 		if !_file.contains(".import"): game_title_frames.append("%s%s" % [
 			GAME_TITLE_FRAMES_DIRECTORY, _file
 		])
 
 func get_backgrounds() -> void:
-	for _file: String in DirAccess.get_files_at(BACKGROUNDS_DIRECTORY):
+	for _file: String in FilesGetter.get_files_at(BACKGROUNDS_DIRECTORY):
 		if !_file.contains(".import"): backgrounds.append("%s%s" % [
 			BACKGROUNDS_DIRECTORY, _file
 		])
@@ -51,26 +52,19 @@ func update_background() -> void:
 	
 	background.texture = load(next_backgound)
 
-func _on_play_button_pressed() -> void:
-	black_fading.color = Color(0.0, 0.0, 0.0, 0.0)
-	black_fading.show()
-	
-	var tween: Tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_parallel(true)
-	tween.tween_property(
-		black_fading, "color",
-		Color(0.0, 0.0, 0.0, 1.0), 3.5
-	)
-	tween.tween_property(
-		audio_stream_player, "volume_db",
-		-80.0, 3.2
-	)
-	await tween.finished
+func play_trans() -> void:
+	animation_player.play("trans_out")
+	await animation_player.animation_finished
 	await get_tree().create_timer(2.5).timeout
-	
+
+func _on_play_button_pressed() -> void:
+	await play_trans()
 	SceneManager.add_scene("RunContext", RUN_CONTEXT_SCENE_PATH)
 	SceneManager.replace_scene("RunContext")
+
+func _on_tutorial_button_pressed() -> void:
+	await play_trans()
+	SceneManager.add_scene("TutorialLevel", TUTORIAL_LEVEL_SCENE_PATH)
+	SceneManager.replace_scene("TutorialLevel")
 
 func _on_quit_button_pressed() -> void: get_tree().quit()

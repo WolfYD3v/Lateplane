@@ -8,6 +8,7 @@ class_name RunContext
 @onready var canvas_layer: CanvasLayer = %CanvasLayer
 @onready var mesh_instance: MeshInstance3D = %MeshInstance
 @onready var _3d_view_rigid_body: RigidBody3D = %"3DViewRigidBody"
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var sequences: Array[RunContextSequence] = []
 
@@ -24,6 +25,9 @@ func play_sequences() -> void:
 		else: await get_tree().create_timer(_sequence.freezing_duration).timeout
 
 func stop() -> void:
+	audio_stream_player.play()
+	animation_player.play("trans")
+	await animation_player.animation_finished
 	SceneManager.remove_scene("RunContext")
 	RunManager.start_new_run()
 

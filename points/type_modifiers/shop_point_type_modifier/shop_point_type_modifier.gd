@@ -1,35 +1,33 @@
 extends BasePointTypeModifier
 class_name ShopPointTypeModifier
 
-const SHOPS_DIRECTORY: String = "res://shops/collection/"
-
-var shops: Array[String] = []
 var current_shop: BaseShop = null
 
 func _ready() -> void:
-	parent = get_parent()
-	parent.sprite.texture = override_texture
-	if override_point_name != "": parent.name = override_point_name
+	print("rrrrrrr ", RunManager.shops.size() > RunManager.shops_placed_count)
+	if RunManager.shops.size() > RunManager.shops_placed_count:
+		RunManager.shops_placed_count += 1
+		parent = get_parent()
+		parent.sprite.texture = override_texture
+		if override_point_name != "": parent.name = override_point_name
+		if override_point_description != "": parent.description = override_point_description
+		parent.update_name_label_text()
+		
+		act()
 	
-	act()
-
-func get_shops() -> void:
-	for _file: String in DirAccess.get_files_at(SHOPS_DIRECTORY):
-		if _file.ends_with(".tscn"): shops.append("%s%s" % [
-			SHOPS_DIRECTORY, _file
-		])
-	print("%s - Shops Found: " % name, shops)
+	else: queue_free.call_deferred()
 
 func try_load_random_shop() -> void:
-	if shops.is_empty(): return
+	if RunManager.shops.is_empty(): return
 	
-	current_shop = load(shops.pick_random()).instantiate()
+	current_shop = load(RunManager.shops.pop_at(
+		randi_range(0, RunManager.shops.size() - 1)
+	)).instantiate()
 	get_tree().root.add_child(current_shop)
 	print(current_shop)
 
 func act() -> void:
 	if parent:
-		get_shops()
 		RunManager.player_changed_point.connect(
 			func(): if RunManager.current_point == parent:
 				print("A Shop Point :)")

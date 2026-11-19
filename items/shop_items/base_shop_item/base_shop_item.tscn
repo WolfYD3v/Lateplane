@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bdnftso0sbaag" path="res://items/shop_items/base_shop_item/base_shop_item.gd" id="1_63li5"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_gemhv"]
-[ext_resource type="Texture2D" uid="uid://bfn6g17fseq87" path="res://assets/images/plane/plane_full.png" id="2_l0grk"]
 
 [node name="BaseShopItem" type="Control" unique_id=1277744959]
 custom_minimum_size = Vector2(0, 300)
@@ -13,9 +12,6 @@ grow_horizontal = 2
 mouse_filter = 2
 theme = ExtResource("1_gemhv")
 script = ExtResource("1_63li5")
-item_texture = ExtResource("2_l0grk")
-item_name = "Plane"
-item_description = "Le joueur"
 
 [node name="Background" type="ColorRect" parent="." unique_id=732264789]
 layout_mode = 1
@@ -40,7 +36,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_l0grk")
 expand_mode = 4
 stretch_mode = 5
 
@@ -55,7 +50,7 @@ custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
-text = "Plane"
+text = "ITEM NAME"
 autowrap_mode = 3
 
 [node name="ItemDescriptionLabel" type="Label" parent="NODES/InfosContainer" unique_id=1748765748]
@@ -64,7 +59,7 @@ custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
-text = "Le joueur"
+text = "ITEM DESCRIPTION"
 autowrap_mode = 3
 
 [node name="ItemPriceLabel" type="Label" parent="NODES/InfosContainer" unique_id=885771676]

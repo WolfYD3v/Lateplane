@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItemResource" format=3 uid="uid://cvi01f46iry7e"]
+
+[ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="1_7jlbc"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="1_i5eni"]
+
+[resource]
+script = ExtResource("1_i5eni")
+item_texture = ExtResource("1_7jlbc")
+item_name = "Minecraft Like"
+item_description = "Les couleurs, tu connais"
+item_price = 15
+metadata/_custom_type_script = "uid://cw33q672e5nnu"

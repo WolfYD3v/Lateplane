@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmg18tippjkc6"]
+
+[ext_resource type="Material" uid="uid://dlp06vq3xmlik" path="res://assets/materials/outline_shader_3d_material.tres" id="1_dl5hx"]
+
+[resource]
+next_pass = ExtResource("1_dl5hx")
+albedo_color = Color(0.6666667, 0.6666667, 0.6666667, 1)

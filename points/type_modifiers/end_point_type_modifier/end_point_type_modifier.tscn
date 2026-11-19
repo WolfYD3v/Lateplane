@@ -6,4 +6,5 @@
 [node name="EndPointTypeModifier" type="Node" unique_id=1490046106]
 script = ExtResource("1_x34ny")
 override_point_name = "EndPoint"
+override_point_description = "L'aéroport de la ville, tu peux changer de destination"
 override_texture = ExtResource("2_sb6o5")

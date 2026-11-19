@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://djlufjofqaod"]
+
+[ext_resource type="Material" uid="uid://mm87mujno3sm" path="res://assets/materials/2d_fog_shader_material.tres" id="1_72sxi"]
+
+[node name="FoggyBG" type="Control" unique_id=49063268]
+modulate = Color(1, 1, 1, 0.19607843)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fog" type="ColorRect" parent="." unique_id=1312989283]
+material = ExtResource("1_72sxi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -135.5
+offset_right = 27.0
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Darkener" type="ColorRect" parent="." unique_id=99330032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 0.39215687)

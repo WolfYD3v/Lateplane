@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b5dxd7qjdrhkb" path="res://assets/materials/point_gb_texture.tres" id="2_b1mdn"]
 [ext_resource type="Texture2D" uid="uid://cu6rvcd1fckhk" path="res://assets/images/points/ready_for_selection_a.png" id="3_b1mdn"]
 [ext_resource type="Texture2D" uid="uid://dibu50e5hy3t6" path="res://assets/images/points/ready_for_selection_b.png" id="4_htes5"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_htes5"]
+[ext_resource type="PackedScene" uid="uid://djlufjofqaod" path="res://scenes/foggy_bg.tscn" id="5_kqfua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5rcu"]
 radius = 32.5
@@ -51,6 +53,67 @@ unique_name_in_owner = true
 [node name="CollisionShape" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=768851310]
 shape = SubResource("CircleShape2D_112x8")
 disabled = true
+
+[node name="HoverInfosCanvasLayer" type="CanvasLayer" parent="." unique_id=1161765269]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="HoverInfosCanvasLayer" unique_id=606265839]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -458.0
+offset_bottom = 241.0
+grow_horizontal = 0
+
+[node name="FoggyBG" parent="HoverInfosCanvasLayer/Control" unique_id=49063268 instance=ExtResource("5_kqfua")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HoverInfosCanvasLayer/Control" unique_id=546546430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HoverInfosCanvasLayer/Control/MarginContainer" unique_id=872330317]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HoverInfosCanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1405747918]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("5_htes5")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "NAME"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="HoverInfosCanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=205838250]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DescriptionLabel" type="Label" parent="HoverInfosCanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1324957553]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_htes5")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+text = "DESCRIPTION"
+horizontal_alignment = 2
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_exited"]

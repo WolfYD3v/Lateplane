@@ -52,12 +52,11 @@ func init_clock() -> void:
 	seconds = current_time.second
 	minutes = current_time.minute
 	hours = current_time.hour
-	if hours >= 12: while hours >= 12: hours -= 12
 	
 	var e: float = 360.0 / 60.0
 	seconds_arrow.rotation_degrees = -90.0 + (float(seconds) * e)
 	minutes_arrow.rotation_degrees = -90.0 + (float(minutes) * e)
-	hours_arrow.rotation_degrees = -90.0 - (float(hours + 1) * (5.0 * e))
+	hours_arrow.rotation_degrees = -90.0 - (float(hours) * (5.0 * e))
 	
 	init_numbers()
 

@@ -19,12 +19,11 @@ boot_splash/use_filter=false
 
 [autoload]
 
-SaveManager="uid://dcfaf2b2iggwh"
 SceneManager="*uid://cuhdcmnfn0y1b"
-SettingsManager="uid://wcsvrt73ybo8"
 RunManager="*uid://dmgqomw8pev7j"
 MoneyManager="*uid://b8g1xo8hnw8xw"
 InventoryManager="*uid://chmsgjchgscb"
+FilesGetter="*uid://brn1gh888yy8p"
 
 [display]
 

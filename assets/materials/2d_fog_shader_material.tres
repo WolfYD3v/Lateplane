@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://mm87mujno3sm"]
+
+[ext_resource type="Shader" uid="uid://b1d0np1xu3nf6" path="res://assets/shaders/2d_fog_shader_material.gdshader" id="1_egujn"]
+
+[sub_resource type="Gradient" id="Gradient_egujn"]
+offsets = PackedFloat32Array(0.003787879, 0.24662162, 0.4831081, 0.6993243, 0.8682432, 1)
+colors = PackedColorArray(0.7461703, 0.28972986, 0.6608969, 1, 0.2389462, 0.20587185, 0.3832158, 1, 0.5019608, 0.23529412, 0.105882354, 1, 0.5403241, 0.5423297, 0.24566844, 1, 0.42745098, 0.8784314, 0.7882353, 1, 0.47628397, 0.33142954, 0.84146935, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2chtd"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o154c"]
+width = 500
+height = 500
+noise = SubResource("FastNoiseLite_2chtd")
+color_ramp = SubResource("Gradient_egujn")
+seamless = true
+invert = true
+
+[resource]
+shader = ExtResource("1_egujn")
+shader_parameter/octaves = 10
+shader_parameter/color_gradient = SubResource("NoiseTexture2D_o154c")
+shader_parameter/speed_1 = 0.10000000475
+shader_parameter/speed_2 = 0.15
+shader_parameter/smoke_persistance = 1.50000007125
+shader_parameter/smoke_amplitude = 0.50000002375
+shader_parameter/smoke_starting_offset = 0.02

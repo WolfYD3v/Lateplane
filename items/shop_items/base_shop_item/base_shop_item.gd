@@ -29,9 +29,14 @@ class_name BaseShopItem
 const BASE_INVENTORY_ITEM_PATH: String = "res://items/inventory_items/base_inventory_item/base_inventory_item.tscn"
 
 var enabled: bool = true
-var buyed: bool = false
+var buyed: bool = false:
+	set(value):
+		buyed = value
+		if buyed: custom_minimum_size.y /= 1.5
 
-func _ready() -> void: update_item()
+func _ready() -> void:
+	MoneyManager.money_updated.connect(update_enable)
+	update_item()
 
 func update_item() -> void:
 	item_texture_rect.texture = item_texture
@@ -45,18 +50,24 @@ func update_enable() -> void:
 	buy_button.disabled = !enabled
 	disabled_color_rect.visible = !enabled
 
-func _on_buy_button_pressed() -> void:
+func try_buy() -> bool:
 	if !InventoryManager.can_store_more():
 		print("Cannot Buy It: No More Space In The Inventory")
-		return
+		return false
 	if !MoneyManager.try_buy(item_price):
 		print("Cannot Buy It: Too Expensive For The Money Amount You Currently Have")
-		return
-	
+		return false
+	return true
+
+func convert_to_inventory_item() -> void:
 	var packed_scene: PackedScene = load(BASE_INVENTORY_ITEM_PATH)
 	var inventory_item: BaseInventoryItem = packed_scene.instantiate()
 	inventory_item.item_name = item_name
 	inventory_item.item_texture = item_texture
 	InventoryManager.try_add_item(inventory_item)
-	buyed = true
-	update_enable()
+
+func _on_buy_button_pressed() -> void:
+	if try_buy():
+		convert_to_inventory_item()
+		buyed = true
+		update_enable()

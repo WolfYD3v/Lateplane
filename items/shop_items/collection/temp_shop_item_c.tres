@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItemResource" format=3 uid="uid://coa060lta4eo1"]
+
+[ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="1_2jak5"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="1_jjr6h"]
+
+[resource]
+script = ExtResource("1_jjr6h")
+item_texture = ExtResource("1_2jak5")
+item_name = "Enquêteur"
+item_description = "Il enquête très bien :)"
+item_price = 35
+metadata/_custom_type_script = "uid://cw33q672e5nnu"

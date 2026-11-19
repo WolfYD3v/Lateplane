@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItemResource" format=3 uid="uid://bgsrysy0go5tv"]
+
+[ext_resource type="Texture2D" uid="uid://bfn6g17fseq87" path="res://assets/images/plane/plane_full.png" id="1_015fh"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="1_k4thv"]
+
+[resource]
+script = ExtResource("1_k4thv")
+item_texture = ExtResource("1_015fh")
+item_name = "Plane"
+item_description = "C'est toi, tu est à vendre !"
+item_price = 550
+metadata/_custom_type_script = "uid://cw33q672e5nnu"

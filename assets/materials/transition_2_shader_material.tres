@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bio0273m6dby5"]
+
+[ext_resource type="Shader" uid="uid://dsyqmngcxrwgs" path="res://assets/shaders/transition_2.gdshader" id="1_48ign"]
+
+[resource]
+shader = ExtResource("1_48ign")
+shader_parameter/t = 0.0
+shader_parameter/power = 1.0
+shader_parameter/mask_color = Color(0, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+shader_parameter/normal = Vector2(1, 1)
+shader_parameter/offset = -0.5

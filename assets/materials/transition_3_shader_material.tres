@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://y7jsg85yctth"]
+
+[ext_resource type="Shader" uid="uid://c1ydeiy482uhr" path="res://assets/shaders/transition_3.gdshader" id="1_ue62q"]
+
+[resource]
+shader = ExtResource("1_ue62q")
+shader_parameter/t = 1.0
+shader_parameter/mask_color = Color(0, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+shader_parameter/translate = Vector2(-0.25, -0.25)
+shader_parameter/extra_size = 1.0

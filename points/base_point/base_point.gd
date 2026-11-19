@@ -10,7 +10,11 @@ signal done
 @onready var ring_a: Sprite2D = %RingA
 @onready var ring_b: Sprite2D = %RingB
 @onready var background: Sprite2D = %Background
+@onready var name_label: Label = %NameLabel
+@onready var description_label: Label = %DescriptionLabel
+@onready var hover_infos_canvas_layer: CanvasLayer = %HoverInfosCanvasLayer
 
+@export_multiline() var description: String = ""
 @export var know_points: Array[BasePoint] = []
 @export var end_point: bool = false
 @export var night_point: bool = false
@@ -18,22 +22,27 @@ signal done
 var _ready_for_selection: bool = false:
 	set(value):
 		_ready_for_selection = value
-		ready_for_selection_canvas_group.visible = _ready_for_selection
+		if is_node_ready(): ready_for_selection_canvas_group.visible = _ready_for_selection
 var selected: bool = false:
 	set(value):
 		selected = value
-		ready_for_selection_canvas_group.visible = selected
+		if is_node_ready(): ready_for_selection_canvas_group.visible = selected
 var visited: bool = false:
 	set(value):
 		visited = value
 		if visited and is_node_ready(): update_background()
-
-var _mouse_in: bool = false
+var _mouse_in: bool = false:
+	set(value):
+		_mouse_in = value
+		if is_node_ready() and _ready_for_selection or visited: hover_infos_canvas_layer.visible = _mouse_in
+		else: hover_infos_canvas_layer.visible = false
 
 func _ready() -> void:
 	if end_point: scale *= 1.5
+	_mouse_in = false
 	_ready_for_selection = false
 	selected = false
+	update_name_label_text()
 	update_background()
 	a()
 
@@ -45,6 +54,15 @@ func _input(event: InputEvent) -> void:
 			visited = true
 			done.emit()
 			MoneyManager.add_money(50)
+
+func update_name_label_text() -> void:
+	var regex: RegEx = RegEx.create_from_string("Point[0-9]{1,5}")
+	var regex_match: RegExMatch = regex.search(name)
+	var spliter: String = "Point"
+	if regex_match: spliter = regex_match.get_string(0)
+	
+	name_label.text = "%s Point" % name.split(spliter, false)[0]
+	description_label.text = description
 
 func update_current_point() -> void:
 	print("Know Points on Point '%s': " % name, know_points)

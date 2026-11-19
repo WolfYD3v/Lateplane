@@ -6,6 +6,94 @@
 [ext_resource type="PackedScene" uid="uid://vaymv3jcikht" path="res://scenes/main_menu/clock/main_menu_clock.tscn" id="2_ob46e"]
 [ext_resource type="Texture2D" uid="uid://dxb41cwl7cotc" path="res://icon.svg" id="3_3ovsr"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="4_uqeha"]
+[ext_resource type="AudioStream" uid="uid://gxqkfolkx0cv" path="res://assets/musics/main_menu_ambiance_loop.mp3" id="7_5seab"]
+[ext_resource type="PackedScene" uid="uid://sfjibbje4qwm" path="res://button_sfx_player/button_sfx_player.tscn" id="7_thkx5"]
+[ext_resource type="AudioStream" uid="uid://cocidhp25tp4q" path="res://assets/sfxs/button_pressed_sfx.wav" id="8_4xg86"]
+
+[sub_resource type="Animation" id="Animation_4xg86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFading:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackFading:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5seab"]
+resource_name = "trans_out"
+length = 3.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFading:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [-3.5, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackFading:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xg86"]
+_data = {
+&"RESET": SubResource("Animation_4xg86"),
+&"trans_out": SubResource("Animation_5seab")
+}
 
 [node name="MainMenu" type="Control" unique_id=481742960]
 layout_mode = 3
@@ -63,12 +151,25 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="VBoxContainer/ButtonsContainer" unique_id=842573684]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Start Run"
+text = "Voyager"
+
+[node name="ButtonSFXPlayer" parent="VBoxContainer/ButtonsContainer/PlayButton" unique_id=1495253200 instance=ExtResource("7_thkx5")]
+stream = ExtResource("8_4xg86")
+volume_db = -5.0
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer/ButtonsContainer" unique_id=2014767098]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Tutoriel"
+
+[node name="ButtonSFXPlayer" parent="VBoxContainer/ButtonsContainer/TutorialButton" unique_id=1193970791 instance=ExtResource("7_thkx5")]
+stream = ExtResource("8_4xg86")
+volume_db = -5.0
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/ButtonsContainer" unique_id=1331686973]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Quit"
+text = "Glander"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer" unique_id=978263519]
 custom_minimum_size = Vector2(0, 15)
@@ -86,10 +187,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=940635926]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=729677192]
 unique_name_in_owner = true
-volume_db = -30.0
+libraries/ = SubResource("AnimationLibrary_4xg86")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=940635926]
+stream = ExtResource("7_5seab")
+volume_db = -3.5
+pitch_scale = 0.5
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsContainer/QuitButton" to="." method="_on_quit_button_pressed"]

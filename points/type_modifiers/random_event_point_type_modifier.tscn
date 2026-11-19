@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://eqxx5mfvw6bj"]
+
+[ext_resource type="PackedScene" uid="uid://bnld14lk34kvi" path="res://points/type_modifiers/base_point_type_modifier/base_point_type_modifier.tscn" id="1_7k0ab"]
+[ext_resource type="Texture2D" uid="uid://bnnbp1ts4qr3x" path="res://assets/images/points/random_event_point.png" id="2_7mqj4"]
+
+[node name="RandomEventPointTypeModifier" unique_id=1384976020 instance=ExtResource("1_7k0ab")]
+override_point_name = "RandomEvent"
+override_point_description = "Tout peu arriver"
+override_texture = ExtResource("2_7mqj4")

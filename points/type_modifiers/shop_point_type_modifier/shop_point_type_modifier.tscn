@@ -7,4 +7,5 @@
 [node name="ShopPointTypeModifier" unique_id=1384976020 instance=ExtResource("1_6nwkt")]
 script = ExtResource("2_312e5")
 override_point_name = "ShopPoint"
+override_point_description = "Dépenses ton argent dûrement obtenu dans une petite boutique locale"
 override_texture = ExtResource("3_oxhpx")

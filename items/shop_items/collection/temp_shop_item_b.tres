@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItemResource" format=3 uid="uid://chnm5cyy75ppt"]
+
+[ext_resource type="Texture2D" uid="uid://n37jrismfkly" path="res://assets/images/points/luck_point.png" id="1_4uybw"]
+[ext_resource type="Script" uid="uid://cw33q672e5nnu" path="res://resources/shop_item_resource/shop_item_resource.gd" id="1_vyupe"]
+
+[resource]
+script = ExtResource("1_vyupe")
+item_texture = ExtResource("1_4uybw")
+item_name = "La chance va te sourire"
+item_description = "Tout est dans le nom"
+item_price = 120
+metadata/_custom_type_script = "uid://cw33q672e5nnu"

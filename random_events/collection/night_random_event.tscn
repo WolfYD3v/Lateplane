@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://coawjw4b1fw5u"]
+
+[ext_resource type="PackedScene" uid="uid://ptkf6bsup02d" path="res://random_events/base_random_event/base_random_event.tscn" id="1_64v36"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_64v36"]
+viewport_path = NodePath("CardSubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ykgd4"]
+viewport_path = NodePath("SubViewportContainer/FrontFaceSubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a16qo"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ykgd4")
+
+[node name="NightRandomEvent" unique_id=1013607034 instance=ExtResource("1_64v36")]
+is_night_event = true
+event_name = "La nuit est tombée"
+event_description = "Il est l'heure de se reposer, n'importe où tant que tu as un lit"
+
+[node name="CardTextureRect" parent="." index="0" unique_id=838339663]
+texture = SubResource("ViewportTexture_64v36")
+
+[node name="NameLabel" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer/MarginContainer" parent_id_path=PackedInt32Array(128322940) index="0" unique_id=1784451107]
+text = "LA NUIT EST TOMBÉE"
+
+[node name="DescriptionLabel" parent="SubViewportContainer/FrontFaceSubViewport/Control/ScrollContainer/VBoxContainer/MarginContainer2/ScrollContainer" parent_id_path=PackedInt32Array(1917176990) index="0" unique_id=934195673]
+text = "Il est l'heure de se reposer, n'importe où tant que tu as un lit"
+
+[node name="AlertTextLabel" parent="AlertSection/Control" parent_id_path=PackedInt32Array(1856389037) index="1" unique_id=32579159]
+text = "Hold on cowboy !"
+
+[node name="Frontface" parent="CardSubViewport/DMArm/CardModel" parent_id_path=PackedInt32Array(317765233) index="1" unique_id=671742646]
+material_override = SubResource("StandardMaterial3D_a16qo")

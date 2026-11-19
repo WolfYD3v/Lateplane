@@ -1,3 +1,4 @@
+// https://godotshaders.com/shader/luminance-mask-transition/
 shader_type canvas_item;
 
 uniform float luminance_cutoff: hint_range(0.0, 1.0) = 0.0;

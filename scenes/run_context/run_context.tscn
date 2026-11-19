@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://ddpsfro30wfww" path="res://assets/voice_lines/run_context_sequences/sequence_3.mp3" id="8_hroms"]
 [ext_resource type="Environment" uid="uid://xbsxv8chp3i2" path="res://assets/envs/run_context_environment.tres" id="8_jtux8"]
 [ext_resource type="Texture2D" uid="uid://bd1gwycgth651" path="res://assets/images/enqueteur.jpg" id="9_8t7bd"]
+[ext_resource type="Texture2D" uid="uid://det2okpr1ww61" path="res://assets/images/run_context_sequences_images/sequence_4_image.png" id="9_2467k"]
 [ext_resource type="AudioStream" uid="uid://cfr07ehrb5ekw" path="res://assets/voice_lines/run_context_sequences/sequence_4.mp3" id="9_tv6xf"]
 [ext_resource type="Texture2D" uid="uid://l4a6lb0jm15p" path="res://assets/images/man-sitting-on-couch-watching-tv.png" id="10_c11rx"]
 [ext_resource type="Texture2D" uid="uid://bhcshe0ow4rpr" path="res://assets/images/run_context_sequences_images/sequence_5_image.png" id="10_qo774"]
@@ -22,11 +23,15 @@
 [ext_resource type="AudioStream" uid="uid://bs8afgfcc5o7i" path="res://assets/voice_lines/run_context_sequences/sequence_7.mp3" id="15_xtxgt"]
 [ext_resource type="Texture2D" uid="uid://djampwi4extx" path="res://assets/images/run_context_sequences_images/sequence_8_image.png" id="16_5c560"]
 [ext_resource type="AudioStream" uid="uid://dswjmdjrtjnap" path="res://assets/voice_lines/run_context_sequences/sequence_8.mp3" id="17_d576l"]
-[ext_resource type="Texture2D" uid="uid://xq3htu06gny8" path="res://export/web/game/Lateplane.icon.png" id="18_rub33"]
+[ext_resource type="Texture2D" uid="uid://vbtaa1iox5p8" path="res://assets/images/run_context_sequences_images/sequence_9_image.png" id="19_3nv5o"]
 [ext_resource type="AudioStream" uid="uid://bxqtjucgn6uh" path="res://assets/sfxs/winchester-rifle-loading.mp3" id="19_2467k"]
 [ext_resource type="Texture2D" uid="uid://dv3dq36wcqde6" path="res://assets/images/run_context_sequences_images/sequence_10_image.png" id="20_3nv5o"]
 [ext_resource type="AudioStream" uid="uid://b8kp2luj35m0h" path="res://assets/voice_lines/run_context_sequences/sequence_10.mp3" id="21_tvujv"]
+[ext_resource type="PackedScene" uid="uid://sfjibbje4qwm" path="res://button_sfx_player/button_sfx_player.tscn" id="26_ekcac"]
 [ext_resource type="AudioStream" uid="uid://ceo7t1pefc8x" path="res://assets/sfxs/teleport.mp3" id="26_rub33"]
+[ext_resource type="AudioStream" uid="uid://cnnhrechr51g3" path="res://assets/sfxs/run_context_sfx.wav" id="27_3nv5o"]
+[ext_resource type="Material" uid="uid://y7jsg85yctth" path="res://assets/materials/transition_3_shader_material.tres" id="29_3nv5o"]
+[ext_resource type="AudioStream" uid="uid://ddhyrx772l72a" path="res://assets/sfxs/run_context_trans_sfx.wav" id="32_1sufh"]
 
 [sub_resource type="Resource" id="Resource_40iel"]
 script = ExtResource("2_482ak")
@@ -48,7 +53,7 @@ metadata/_custom_type_script = "uid://divyflfftso2c"
 
 [sub_resource type="Resource" id="Resource_qo774"]
 script = ExtResource("2_482ak")
-image = ExtResource("6_dofqh")
+image = ExtResource("9_2467k")
 voice_line = ExtResource("9_tv6xf")
 metadata/_custom_type_script = "uid://divyflfftso2c"
 
@@ -78,7 +83,7 @@ metadata/_custom_type_script = "uid://divyflfftso2c"
 
 [sub_resource type="Resource" id="Resource_w21vt"]
 script = ExtResource("2_482ak")
-image = ExtResource("18_rub33")
+image = ExtResource("19_3nv5o")
 voice_line = ExtResource("19_2467k")
 metadata/_custom_type_script = "uid://divyflfftso2c"
 
@@ -143,6 +148,91 @@ bg_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
 expand_margin_left = 15.0
 expand_margin_right = 15.0
 anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_3nv5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Transition:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/Transition:material:shader_parameter/translate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.25, -0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_tvujv"]
+resource_name = "trans"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/Transition:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 4, 4.1, 5, 5.15, 5.5, 6.5),
+"transitions": PackedFloat32Array(1, -0.5, 0.5, -2, 0.5, 0.5, 0.5, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.1, 0.08, 0.35, 0.4, 0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/Transition:material:shader_parameter/translate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.8, 5, 5.1, 5.5, 6.5),
+"transitions": PackedFloat32Array(1, 0.5, -2, 2, -0.5, 1),
+"update": 0,
+"values": [Vector2(-0.25, -0.25), Vector2(-0.25, -0.25), Vector2(0.4, 0.4), Vector2(0.55, 0.1), Vector2(0.1, 0.1), Vector2(0.099999994, 0.099999994)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekcac"]
+_data = {
+&"RESET": SubResource("Animation_3nv5o"),
+&"trans": SubResource("Animation_tvujv")
+}
 
 [node name="RunContext" type="Node3D" unique_id=475722064]
 script = ExtResource("1_x6r2v")
@@ -292,6 +382,10 @@ alignment = 0
 autowrap_mode = 3
 expand_icon = true
 
+[node name="ButtonSFXPlayer" parent="CanvasLayer/Control/Menu/Buttons/GetContextButton" unique_id=1495253200 instance=ExtResource("26_ekcac")]
+stream = ExtResource("26_rub33")
+pitch_scale = 4.0
+
 [node name="SkipButton" type="Button" parent="CanvasLayer/Control/Menu/Buttons" unique_id=609223115]
 layout_mode = 0
 offset_left = 264.0
@@ -309,12 +403,15 @@ alignment = 0
 autowrap_mode = 3
 expand_icon = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control/Menu" unique_id=179177956]
+[node name="ButtonSFXPlayer" parent="CanvasLayer/Control/Menu/Buttons/SkipButton" unique_id=916046320 instance=ExtResource("26_ekcac")]
 stream = ExtResource("26_rub33")
-volume_db = -15.0
 pitch_scale = 4.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control/Menu" unique_id=179177956]
+stream = ExtResource("27_3nv5o")
+volume_db = -15.0
+pitch_scale = 0.25
 autoplay = true
-parameters/looping = true
 
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("7_r48yk")]
 layout_mode = 1
@@ -323,8 +420,27 @@ offset_top = 257.0
 offset_right = 238.0
 offset_bottom = 257.0
 
+[node name="Transition" type="ColorRect" parent="CanvasLayer/Control" unique_id=284561980]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("29_3nv5o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=453253156]
 unique_name_in_owner = true
+stream = ExtResource("32_1sufh")
+volume_db = -15.0
+pitch_scale = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1072729031]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ekcac")
+speed_scale = 1.5
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/Menu/Buttons/GetContextButton" to="." method="_on_get_context_button_pressed"]

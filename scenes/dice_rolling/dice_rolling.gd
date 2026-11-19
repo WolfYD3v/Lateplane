@@ -9,6 +9,9 @@ signal click_done
 @onready var sub_viewport: SubViewport = %SubViewport
 @onready var timer: Timer = %Timer
 @onready var click_instruction: Control = %ClickInstruction
+@onready var number_label: Label = %NumberLabel
+
+const TIME_TO_READ_NB: float = 5.0
 
 var random_number: int = 0
 var rolling_dice: bool = false
@@ -40,6 +43,7 @@ func roll_dice() -> int:
 	timer.stop()
 	rolling_dice = false
 	random_number = randi_range(1, 20)
+	number_label.text = str(random_number)
 	return random_number
 
 func _on_timer_timeout() -> void:

@@ -3,11 +3,183 @@
 [ext_resource type="Script" uid="uid://cu2v2py3efry2" path="res://levels/base_level/base_level.gd" id="1_wgie4"]
 [ext_resource type="PackedScene" uid="uid://bxo8reycaf1e2" path="res://player/player.tscn" id="2_6qevo"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_dg36u"]
-[ext_resource type="PackedScene" uid="uid://bkgseta8rt50f" path="res://points/empty_point/empty_point.tscn" id="3_o8y72"]
 [ext_resource type="PackedScene" uid="uid://c13ywvbq1a5fj" path="res://scenes/pixelation_overlay.tscn" id="3_xuqcn"]
-[ext_resource type="Texture2D" uid="uid://cwr335233ffle" path="res://assets/images/points/all_points.png" id="6_2ulk6"]
+[ext_resource type="Material" uid="uid://bio0273m6dby5" path="res://assets/materials/transition_2_shader_material.tres" id="5_o8y72"]
+[ext_resource type="AudioStream" uid="uid://gxqkfolkx0cv" path="res://assets/musics/main_menu_ambiance_loop.mp3" id="6_2ulk6"]
+
+[sub_resource type="Gradient" id="Gradient_2ulk6"]
+colors = PackedColorArray(0.019607844, 0.039215688, 0.05882353, 1, 0.039215688, 0.05882353, 0.078431375, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pi8dj"]
+gradient = SubResource("Gradient_2ulk6")
+width = 1500
+height = 1500
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_2ulk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Transition:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Transition:material:shader_parameter/power")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../SongAudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4dt4w"]
+resource_name = "in"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Transition:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Transition:material:shader_parameter/t")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 5.5, 6.5),
+"transitions": PackedFloat32Array(1, -0.5, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Transition:material:shader_parameter/power")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(-2, 2),
+"update": 0,
+"values": [1.0, 5.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../SongAudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_o8y72"]
+resource_name = "out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Transition:material:shader_parameter/t")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(2, -0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Transition:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Transition:material:shader_parameter/power")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.5, -2),
+"update": 0,
+"values": [1.0, 0.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../SongAudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ulk6"]
+_data = {
+&"RESET": SubResource("Animation_2ulk6"),
+&"in": SubResource("Animation_4dt4w"),
+&"out": SubResource("Animation_o8y72")
+}
 
 [node name="BaseLevel" type="Node2D" unique_id=1651772781]
+process_mode = 1
 script = ExtResource("1_wgie4")
 
 [node name="MapContainer" type="Node2D" parent="." unique_id=1680991407]
@@ -16,33 +188,12 @@ unique_name_in_owner = true
 [node name="PointsContainer" type="Node2D" parent="." unique_id=523040712]
 unique_name_in_owner = true
 
-[node name="EmptyPoint1" parent="PointsContainer" unique_id=1587538988 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(185, 156)
-know_points = [NodePath("../EmptyPoint2")]
-
-[node name="EmptyPoint2" parent="PointsContainer" unique_id=1499117377 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(256, -15)
-know_points = [NodePath("../EmptyPoint3")]
-night_point = true
-
-[node name="EmptyPoint3" parent="PointsContainer" unique_id=2069496725 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(99, -206)
-know_points = [NodePath("../EmptyPoint4"), NodePath("../EmptyPoint5")]
-
-[node name="EmptyPoint4" parent="PointsContainer" unique_id=1666509940 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(-223, -265)
-know_points = [NodePath("../EmptyPoint5")]
-
-[node name="EmptyPoint5" parent="PointsContainer" unique_id=144912479 node_paths=PackedStringArray("know_points") instance=ExtResource("3_o8y72")]
-position = Vector2(-286, -12)
-know_points = [NodePath("../EmptyPoint6")]
-
-[node name="EmptyPoint6" parent="PointsContainer" unique_id=1084722697 instance=ExtResource("3_o8y72")]
-position = Vector2(-127, 174)
-end_point = true
-
 [node name="Player" parent="." unique_id=177106641 instance=ExtResource("2_6qevo")]
 unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=768560863]
+z_index = -1
+texture = SubResource("GradientTexture2D_pi8dj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=23109835]
 
@@ -56,16 +207,26 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("3_dg36u")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=1068228963]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 125.0
-grow_horizontal = 2
-texture = ExtResource("6_2ulk6")
-expand_mode = 1
-stretch_mode = 6
-
 [node name="PixelationOverlay" parent="CanvasLayer/Control" unique_id=1801041657 instance=ExtResource("3_xuqcn")]
 layout_mode = 1
+
+[node name="Transition" type="ColorRect" parent="CanvasLayer/Control" unique_id=767856552]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("5_o8y72")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1792912530]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2ulk6")
+
+[node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1901632509]
+unique_name_in_owner = true
+stream = ExtResource("6_2ulk6")
+pitch_scale = 0.5
+parameters/looping = true

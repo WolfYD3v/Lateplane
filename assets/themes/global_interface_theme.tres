@@ -1,6 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://ut3t5ujk5v4b"]
 
 [ext_resource type="FontFile" uid="uid://ddewx5vkrqt0k" path="res://assets/fonts/Redaction_50/Redaction50-Regular.ttf" id="1_0uri8"]
+[ext_resource type="Texture2D" uid="uid://c0gmsl3ur5g6v" path="res://assets/textures/metal_noise_texture.tres" id="1_j8p07"]
+[ext_resource type="Texture2D" uid="uid://cwfpmy06q1gjk" path="res://assets/materials/texture_not_found_material.tres" id="1_q2wwp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8p07"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -27,6 +29,15 @@ expand_margin_left = 10.0
 expand_margin_right = 10.0
 anti_aliasing_size = 0.01
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8idf"]
+texture = ExtResource("1_j8p07")
+expand_margin_left = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jefxd"]
+texture = ExtResource("1_q2wwp")
+texture_margin_left = 5.0
+texture_margin_right = 5.0
+
 [resource]
 default_font = ExtResource("1_0uri8")
 Button/styles/disabled = SubResource("StyleBoxFlat_j8p07")
@@ -34,3 +45,8 @@ Button/styles/focus = SubResource("StyleBoxFlat_0uri8")
 Button/styles/hover = SubResource("StyleBoxFlat_0uri8")
 Button/styles/normal = SubResource("StyleBoxFlat_3ovsr")
 Button/styles/pressed = SubResource("StyleBoxFlat_q2wwp")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_k8idf")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_k8idf")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_k8idf")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_jefxd")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_jefxd")
